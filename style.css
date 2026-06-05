@@ -1,0 +1,129 @@
+/* Custom Cursor */
+body {
+  cursor: none;
+}
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background: var(--accent, #1d4ed8);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease;
+  mix-blend-mode: difference;
+}
+.custom-cursor.hovering {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 1);
+  mix-blend-mode: difference;
+}
+.custom-cursor::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000;
+  font-size: 11px;
+  font-family: 'Fira Code', monospace;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+.custom-cursor.hovering::after {
+  opacity: 1;
+}
+
+/* Ensure interactive elements don't show default cursor */
+a, button, .project-card, .btn, .theme-toggle, .lightbox-close, .screenshot-item img {
+  cursor: none !important;
+}
+
+/* Staggered Reveal Letters */
+.char-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+.char {
+  display: inline-block;
+  transform: translateY(100%);
+  opacity: 0;
+  animation: revealChar 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+@keyframes revealChar {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Dynamic Ambient Blobs */
+@keyframes blobMorphRotate {
+  0% { transform: rotate(0deg) scale(1); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+  34% { transform: rotate(120deg) scale(1.1); border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+  67% { transform: rotate(240deg) scale(0.9); border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
+  100% { transform: rotate(360deg) scale(1); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+}
+.blob1, .blob2 {
+  animation: blobMorphRotate 25s infinite linear;
+  transform-origin: center;
+}
+.blob2 {
+  animation-duration: 30s;
+  animation-direction: reverse;
+}
+
+/* Mouse-Tracking Gradients on Project Cards */
+:root {
+  --highlight: rgba(0, 0, 0, 0.04);
+}
+[data-theme="dark"] {
+  --highlight: rgba(255, 255, 255, 0.06);
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    var(--highlight),
+    transparent 40%
+  );
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.project-card:hover::before {
+  opacity: 1;
+}
+/* Ensure card content stays above gradient */
+.project-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Additional fix for magnetic items */
+.magnetic {
+  transition: transform 0.1s linear;
+}
+.magnetic.leaving {
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
