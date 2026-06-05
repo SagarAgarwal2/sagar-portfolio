@@ -127,3 +127,13 @@ a, button, .project-card, .btn, .theme-toggle, .lightbox-close, .screenshot-item
 .magnetic.leaving {
   transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
+
+/* Disable custom cursor on touch devices (mobile/tablets) */
+@media (hover: none) and (pointer: coarse), (max-width: 768px) {
+  .custom-cursor {
+    display: none !important;
+  }
+  body, a, button, .project-card, .btn, .theme-toggle, .lightbox-close, .screenshot-item img {
+    cursor: auto !important;
+  }
+}
