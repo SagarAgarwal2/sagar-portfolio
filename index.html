@@ -1,536 +1,1239 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Sagar Agarwal — Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
-<style>
-  :root {
-    --bg: #f6f5f1;
-    --bg2: #eeece6;
-    --surface: #fafaf8;
-    --border: #dddad2;
-    --accent: #1d4ed8;
-    --accent2: #b91c1c;
-    --accent3: #15803d;
-    --text: #18181b;
-    --muted: #71717a;
-    --card: #ffffff;
-    --shadow: rgba(0,0,0,0.06);
-    --toggle-bg: #e4e2dc;
-  }
-  [data-theme="dark"] {
-    --bg: #0e0e0c;
-    --bg2: #141410;
-    --surface: #1a1a16;
-    --border: #2c2c26;
-    --accent: #6b9cfa;
-    --accent2: #f87171;
-    --accent3: #4ade80;
-    --text: #f0ede4;
-    --muted: #888278;
-    --card: #161614;
-    --shadow: rgba(0,0,0,0.5);
-    --toggle-bg: #2c2c26;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sagar Agarwal — Portfolio</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f6f5f1;
+      --bg2: #eeece6;
+      --surface: #fafaf8;
+      --border: #dddad2;
+      --accent: #1d4ed8;
+      --accent2: #b91c1c;
+      --accent3: #15803d;
+      --text: #18181b;
+      --muted: #71717a;
+      --card: #ffffff;
+      --shadow: rgba(0, 0, 0, 0.06);
+      --toggle-bg: #e4e2dc;
+    }
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg); color: var(--text);
-    font-family: 'Outfit', sans-serif;
-    overflow-x: hidden;
-    transition: background 0.4s ease, color 0.4s ease;
-  }
+    [data-theme="dark"] {
+      --bg: #0e0e0c;
+      --bg2: #141410;
+      --surface: #1a1a16;
+      --border: #2c2c26;
+      --accent: #6b9cfa;
+      --accent2: #f87171;
+      --accent3: #4ade80;
+      --text: #f0ede4;
+      --muted: #888278;
+      --card: #161614;
+      --shadow: rgba(0, 0, 0, 0.5);
+      --toggle-bg: #2c2c26;
+    }
 
-  /* TOGGLE */
-  .theme-toggle {
-    position: fixed; top: 1.3rem; right: 4rem; z-index: 200;
-    background: var(--toggle-bg); border: 1px solid var(--border);
-    border-radius: 100px; width: 56px; height: 28px;
-    cursor: pointer; display: flex; align-items: center; padding: 3px;
-    transition: background 0.3s, border 0.3s;
-    box-shadow: 0 1px 4px var(--shadow);
-  }
-  .toggle-knob {
-    width: 22px; height: 22px; border-radius: 50%;
-    background: var(--card); box-shadow: 0 1px 4px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease; display: flex;
-    align-items: center; justify-content: center; font-size: 0.72rem;
-  }
-  [data-theme="dark"] .toggle-knob { transform: translateX(28px); }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  body::before {
-    content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-    opacity: 0.45;
-  }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.2rem 4rem;
-    backdrop-filter: blur(18px);
-    background: rgba(246,245,241,0.85);
-    border-bottom: 1px solid var(--border);
-    transition: background 0.4s, border 0.4s;
-  }
-  [data-theme="dark"] nav { background: rgba(14,14,12,0.85); }
-  .nav-logo {
-    font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.3rem;
-    letter-spacing: -0.02em; color: var(--text); text-decoration: none;
-  }
-  .nav-logo em { color: var(--accent); font-style: italic; }
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-  .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.82rem; font-weight: 500; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--text); }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      overflow-x: hidden;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
 
-  /* HERO */
-  .hero {
-    min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
-    padding: 9rem 4rem 5rem; position: relative; overflow: hidden;
-  }
-  .blob { position: absolute; border-radius: 50%; filter: blur(80px); z-index: 0; transition: background 0.4s; }
-  .blob1 { width: 500px; height: 500px; background: rgba(29,78,216,0.07); top: 5%; right: 0; }
-  .blob2 { width: 350px; height: 350px; background: rgba(21,128,61,0.05); bottom: 10%; left: -5%; }
-  [data-theme="dark"] .blob1 { background: rgba(107,156,250,0.09); }
-  [data-theme="dark"] .blob2 { background: rgba(74,222,128,0.06); }
+    /* TOGGLE */
+    .theme-toggle {
+      position: fixed;
+      top: 1.3rem;
+      right: 4rem;
+      z-index: 200;
+      background: var(--toggle-bg);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      width: 56px;
+      height: 28px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: 3px;
+      transition: background 0.3s, border 0.3s;
+      box-shadow: 0 1px 4px var(--shadow);
+    }
 
-  .hero-content { position: relative; z-index: 1; max-width: 860px; }
-  .hero-eyebrow {
-    font-family: 'Fira Code', monospace; font-size: 0.78rem; color: var(--accent);
-    letter-spacing: 0.1em; margin-bottom: 1.4rem;
-    display: flex; align-items: center; gap: 0.7rem;
-    animation: fadeUp 0.7s ease both;
-  }
-  .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--accent); }
+    .toggle-knob {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--card);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+    }
 
-  .hero-name {
-    font-family: 'Playfair Display', serif; font-weight: 900;
-    font-size: clamp(3.8rem, 8vw, 7.5rem);
-    line-height: 0.95; letter-spacing: -0.025em;
-    animation: fadeUp 0.7s ease 0.12s both;
-  }
-  .hero-name .line2 { color: var(--muted); font-style: italic; }
+    [data-theme="dark"] .toggle-knob {
+      transform: translateX(28px);
+    }
 
-  .hero-desc {
-    margin-top: 2rem; font-size: 1.05rem; color: var(--muted);
-    max-width: 520px; line-height: 1.85;
-    animation: fadeUp 0.7s ease 0.24s both;
-  }
-  .hero-cta { margin-top: 2.8rem; display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.7s ease 0.36s both; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    padding: 0.85rem 2rem; border-radius: 6px;
-    font-family: 'Outfit', sans-serif; font-size: 0.88rem; font-weight: 600;
-    text-decoration: none; transition: all 0.25s; cursor: pointer; border: none;
-  }
-  .btn-primary { background: var(--text); color: var(--bg); box-shadow: 0 4px 20px var(--shadow); }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px var(--shadow); }
-  .btn-outline { border: 1.5px solid var(--border); color: var(--text); background: transparent; }
-  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      opacity: 0.45;
+    }
 
-  .hero-stats {
-    margin-top: 5rem; display: flex; gap: 3.5rem; flex-wrap: wrap;
-    padding-top: 3rem; border-top: 1px solid var(--border);
-    animation: fadeUp 0.7s ease 0.48s both;
-  }
-  .stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; letter-spacing: -0.02em; }
-  .stat-num sup { font-size: 1rem; color: var(--accent); }
-  .stat-label { font-size: 0.75rem; color: var(--muted); font-weight: 500; margin-top: 0.2rem; letter-spacing: 0.04em; }
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 4rem;
+      backdrop-filter: blur(18px);
+      background: rgba(246, 245, 241, 0.85);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.4s, border 0.4s;
+    }
 
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+    [data-theme="dark"] nav {
+      background: rgba(14, 14, 12, 0.85);
+    }
 
-  /* SECTIONS */
-  section { padding: 7rem 4rem; position: relative; z-index: 1; }
-  #about, #achievements { background: var(--bg2); transition: background 0.4s; }
-  .section-label {
-    font-family: 'Fira Code', monospace; font-size: 0.72rem; color: var(--accent);
-    letter-spacing: 0.12em; text-transform: uppercase;
-    display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.8rem;
-  }
-  .section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); }
-  .section-title {
-    font-family: 'Playfair Display', serif; font-weight: 900;
-    font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 3.5rem;
-  }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 1.3rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      text-decoration: none;
+    }
 
-  /* ABOUT */
-  .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 6rem; align-items: center; }
-  .about-visual {
-    aspect-ratio: 1; max-width: 340px; background: var(--card);
-    border: 1px solid var(--border); border-radius: 20px;
-    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem;
-    box-shadow: 0 8px 40px var(--shadow); padding: 2.5rem;
-  }
-  .av-initials { font-family: 'Playfair Display', serif; font-size: 5rem; font-weight: 900; line-height: 1; letter-spacing: -0.04em; }
-  .av-initials span { color: var(--accent); }
-  .av-bar { width: 100%; height: 1px; background: var(--border); }
-  .av-sub { font-size: 0.78rem; color: var(--muted); text-align: center; font-family: 'Fira Code', monospace; }
-  .av-badge {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: var(--bg2); border: 1px solid var(--border);
-    border-radius: 100px; padding: 0.4rem 1rem; font-size: 0.74rem; color: var(--muted); font-family: 'Fira Code', monospace;
-  }
-  .av-badge::before { content: '●'; color: var(--accent3); font-size: 0.55rem; }
-  .about-text p { color: var(--muted); line-height: 1.9; font-size: 0.95rem; margin-bottom: 1.4rem; }
-  .about-text p strong { color: var(--text); font-weight: 600; }
-  .skills-grid { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 2rem; }
-  .skill-tag {
-    padding: 0.38rem 0.9rem; border-radius: 4px; font-size: 0.76rem; font-weight: 500;
-    border: 1px solid var(--border); color: var(--muted); background: var(--surface); transition: all 0.2s;
-  }
-  .skill-tag:hover { border-color: var(--accent); color: var(--accent); }
+    .nav-logo em {
+      color: var(--accent);
+      font-style: italic;
+    }
 
-  /* PROJECTS */
-  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem; }
-  .project-card {
-    background: var(--card); border: 1px solid var(--border); border-radius: 14px;
-    padding: 2rem; transition: all 0.3s; box-shadow: 0 2px 12px var(--shadow);
-  }
-  .project-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px var(--shadow); border-color: var(--accent); }
-  .project-num { font-family: 'Fira Code', monospace; font-size: 0.7rem; color: var(--muted); margin-bottom: 1.4rem; }
-  .project-icon { width: 46px; height: 46px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.2rem; border: 1px solid var(--border); background: var(--surface); }
-  .project-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.25rem; margin-bottom: 0.8rem; line-height: 1.3; }
-  .project-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem; }
-  .project-metrics { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.4rem; }
-  .metric { font-size: 0.72rem; font-weight: 600; padding: 0.28rem 0.75rem; border-radius: 100px; }
-  .metric-green { background: rgba(21,128,61,0.08); color: #15803d; border: 1px solid rgba(21,128,61,0.2); }
-  .metric-blue  { background: rgba(29,78,216,0.08); color: #1d4ed8; border: 1px solid rgba(29,78,216,0.2); }
-  .metric-red   { background: rgba(185,28,28,0.08); color: #b91c1c; border: 1px solid rgba(185,28,28,0.2); }
-  .metric-gold  { background: rgba(161,98,7,0.08);  color: #a16207; border: 1px solid rgba(161,98,7,0.2); }
-  [data-theme="dark"] .metric-green { background: rgba(74,222,128,0.1); color: #4ade80; border-color: rgba(74,222,128,0.2); }
-  [data-theme="dark"] .metric-blue  { background: rgba(107,156,250,0.1); color: #6b9cfa; border-color: rgba(107,156,250,0.2); }
-  [data-theme="dark"] .metric-red   { background: rgba(248,113,113,0.1); color: #f87171; border-color: rgba(248,113,113,0.2); }
-  [data-theme="dark"] .metric-gold  { background: rgba(253,224,71,0.1);  color: #fbbf24; border-color: rgba(253,224,71,0.2); }
-  .project-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
-  .tag { font-size: 0.7rem; font-family: 'Fira Code', monospace; padding: 0.22rem 0.6rem; border-radius: 3px; background: var(--bg2); border: 1px solid var(--border); color: var(--muted); }
-  .project-actions { display: flex; gap: 0.8rem; margin-top: 1.4rem; flex-wrap: wrap; }
-  .project-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; font-weight: 600; color: var(--accent); text-decoration: none; transition: gap 0.2s; }
-  .project-link:hover { gap: 0.7rem; }
-  .project-btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.6rem 1.2rem; border-radius: 6px; font-size: 0.82rem; font-weight: 600; text-decoration: none; transition: all 0.25s; border: 1.5px solid var(--border); background: var(--card); color: var(--text); }
-  .project-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 16px var(--shadow); }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
 
-  /* ACHIEVEMENTS */
-  .ach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; }
-  .ach-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.8rem; display: flex; gap: 1.2rem; align-items: flex-start; transition: all 0.25s; box-shadow: 0 2px 10px var(--shadow); }
-  .ach-card:hover { transform: translateY(-3px); box-shadow: 0 10px 32px var(--shadow); }
-  .ach-icon { font-size: 1.7rem; flex-shrink: 0; }
-  .ach-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.4rem; }
-  .ach-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
-  .ach-date { font-size: 0.7rem; font-family: 'Fira Code', monospace; color: var(--accent); margin-top: 0.5rem; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
 
-  /* CONTACT */
-  #contact { background: var(--bg); }
-  .contact-inner { max-width: 640px; margin: 0 auto; text-align: center; }
-  .contact-inner .section-label { justify-content: center; }
-  .contact-inner .section-label::before { display: none; }
-  .contact-big { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 1.5rem; }
-  .contact-big em { color: var(--muted); }
-  .contact-sub { color: var(--muted); font-size: 0.95rem; line-height: 1.85; margin-bottom: 3rem; }
-  .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-  .contact-chip { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.75rem 1.5rem; border-radius: 8px; border: 1.5px solid var(--border); text-decoration: none; color: var(--text); font-size: 0.84rem; font-weight: 500; background: var(--card); transition: all 0.25s; box-shadow: 0 2px 8px var(--shadow); }
-  .contact-chip:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    .nav-links a:hover {
+      color: var(--text);
+    }
 
-  /* FOOTER */
-  footer { border-top: 1px solid var(--border); padding: 2rem 4rem; display: flex; align-items: center; justify-content: space-between; background: var(--bg2); transition: background 0.4s; }
-  footer p { font-size: 0.78rem; color: var(--muted); }
-  footer span { color: var(--accent2); }
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 9rem 4rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
 
-  /* REVEAL */
-  .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.65s ease, transform 0.65s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      z-index: 0;
+      transition: background 0.4s;
+    }
 
-  ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: var(--bg); }
-  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    .blob1 {
+      width: 500px;
+      height: 500px;
+      background: rgba(29, 78, 216, 0.07);
+      top: 5%;
+      right: 0;
+    }
 
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { display: none; }
-    .theme-toggle { right: 1.5rem; top: 1.1rem; }
-    .hero { padding: 7rem 1.5rem 3rem; }
-    section { padding: 5rem 1.5rem; }
-    .about-grid { grid-template-columns: 1fr; }
-    .about-visual { display: none; }
-    footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
-  }
-</style>
+    .blob2 {
+      width: 350px;
+      height: 350px;
+      background: rgba(21, 128, 61, 0.05);
+      bottom: 10%;
+      left: -5%;
+    }
+
+    [data-theme="dark"] .blob1 {
+      background: rgba(107, 156, 250, 0.09);
+    }
+
+    [data-theme="dark"] .blob2 {
+      background: rgba(74, 222, 128, 0.06);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.78rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      margin-bottom: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: clamp(3.8rem, 8vw, 7.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.025em;
+      animation: fadeUp 0.7s ease 0.12s both;
+    }
+
+    .hero-name .line2 {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .hero-desc {
+      margin-top: 2rem;
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.85;
+      animation: fadeUp 0.7s ease 0.24s both;
+    }
+
+    .hero-cta {
+      margin-top: 2.8rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      animation: fadeUp 0.7s ease 0.36s both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      border-radius: 6px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--text);
+      color: var(--bg);
+      box-shadow: 0 4px 20px var(--shadow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px var(--shadow);
+    }
+
+    .btn-outline {
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      margin-top: 5rem;
+      display: flex;
+      gap: 3.5rem;
+      flex-wrap: wrap;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border);
+      animation: fadeUp 0.7s ease 0.48s both;
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .stat-num sup {
+      font-size: 1rem;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-weight: 500;
+      margin-top: 0.2rem;
+      letter-spacing: 0.04em;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 7rem 4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    #about,
+    #achievements {
+      background: var(--bg2);
+      transition: background 0.4s;
+    }
+
+    .section-label {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 3.5rem;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .about-visual {
+      aspect-ratio: 1;
+      max-width: 340px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      box-shadow: 0 8px 40px var(--shadow);
+      padding: 2.5rem;
+    }
+
+    .av-initials {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .av-initials span {
+      color: var(--accent);
+    }
+
+    .av-bar {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .av-sub {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: center;
+      font-family: 'Fira Code', monospace;
+    }
+
+    .av-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 0.4rem 1rem;
+      font-size: 0.74rem;
+      color: var(--muted);
+      font-family: 'Fira Code', monospace;
+    }
+
+    .av-badge::before {
+      content: '●';
+      color: var(--accent3);
+      font-size: 0.55rem;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 0.95rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .about-text p strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 2rem;
+    }
+
+    .skill-tag {
+      padding: 0.38rem 0.9rem;
+      border-radius: 4px;
+      font-size: 0.76rem;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: var(--surface);
+      transition: all 0.2s;
+    }
+
+    .skill-tag:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+      transition: all 0.3s;
+      box-shadow: 0 2px 12px var(--shadow);
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 48px var(--shadow);
+      border-color: var(--accent);
+    }
+
+    .project-num {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-bottom: 1.4rem;
+    }
+
+    .project-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .project-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-bottom: 0.8rem;
+      line-height: 1.3;
+    }
+
+    .project-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .metric {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.28rem 0.75rem;
+      border-radius: 100px;
+    }
+
+    .metric-green {
+      background: rgba(21, 128, 61, 0.08);
+      color: #15803d;
+      border: 1px solid rgba(21, 128, 61, 0.2);
+    }
+
+    .metric-blue {
+      background: rgba(29, 78, 216, 0.08);
+      color: #1d4ed8;
+      border: 1px solid rgba(29, 78, 216, 0.2);
+    }
+
+    .metric-red {
+      background: rgba(185, 28, 28, 0.08);
+      color: #b91c1c;
+      border: 1px solid rgba(185, 28, 28, 0.2);
+    }
+
+    .metric-gold {
+      background: rgba(161, 98, 7, 0.08);
+      color: #a16207;
+      border: 1px solid rgba(161, 98, 7, 0.2);
+    }
+
+    [data-theme="dark"] .metric-green {
+      background: rgba(74, 222, 128, 0.1);
+      color: #4ade80;
+      border-color: rgba(74, 222, 128, 0.2);
+    }
+
+    [data-theme="dark"] .metric-blue {
+      background: rgba(107, 156, 250, 0.1);
+      color: #6b9cfa;
+      border-color: rgba(107, 156, 250, 0.2);
+    }
+
+    [data-theme="dark"] .metric-red {
+      background: rgba(248, 113, 113, 0.1);
+      color: #f87171;
+      border-color: rgba(248, 113, 113, 0.2);
+    }
+
+    [data-theme="dark"] .metric-gold {
+      background: rgba(253, 224, 71, 0.1);
+      color: #fbbf24;
+      border-color: rgba(253, 224, 71, 0.2);
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      font-family: 'Fira Code', monospace;
+      padding: 0.22rem 0.6rem;
+      border-radius: 3px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .project-actions {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 1.4rem;
+      flex-wrap: wrap;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      transition: gap 0.2s;
+    }
+
+    .project-link:hover {
+      gap: 0.7rem;
+    }
+
+    .project-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s;
+      border: 1.5px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+    }
+
+    .project-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px var(--shadow);
+    }
+
+    /* ACHIEVEMENTS */
+    .ach-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .ach-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.8rem;
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      transition: all 0.25s;
+      box-shadow: 0 2px 10px var(--shadow);
+    }
+
+    .ach-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 32px var(--shadow);
+    }
+
+    .ach-icon {
+      font-size: 1.7rem;
+      flex-shrink: 0;
+    }
+
+    .ach-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .ach-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .ach-date {
+      font-size: 0.7rem;
+      font-family: 'Fira Code', monospace;
+      color: var(--accent);
+      margin-top: 0.5rem;
+    }
+
+    /* CONTACT */
+    #contact {
+      background: var(--bg);
+    }
+
+    .contact-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-inner .section-label {
+      justify-content: center;
+    }
+
+    .contact-inner .section-label::before {
+      display: none;
+    }
+
+    .contact-big {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-big em {
+      color: var(--muted);
+    }
+
+    .contact-sub {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.85;
+      margin-bottom: 3rem;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.84rem;
+      font-weight: 500;
+      background: var(--card);
+      transition: all 0.25s;
+      box-shadow: 0 2px 8px var(--shadow);
+    }
+
+    .contact-chip:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg2);
+      transition: background 0.4s;
+    }
+
+    footer p {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    footer span {
+      color: var(--accent2);
+    }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .theme-toggle {
+        right: 1.5rem;
+        top: 1.1rem;
+      }
+
+      .hero {
+        padding: 7rem 1.5rem 3rem;
+      }
+
+      section {
+        padding: 5rem 1.5rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-visual {
+        display: none;
+      }
+
+      footer {
+        padding: 1.5rem;
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-  <div class="toggle-knob" id="toggleKnob">☀️</div>
-</button>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <div class="toggle-knob" id="toggleKnob">☀️</div>
+  </button>
 
-<nav>
-  <a href="#" class="nav-logo">Sagar<em>.</em></a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#achievements">Achievements</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+  <nav>
+    <a href="#" class="nav-logo">Sagar<em>.</em></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-<section class="hero" id="home">
-  <div class="blob blob1"></div>
-  <div class="blob blob2"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">Pre-final year · BIT Mesra · CS 2027</div>
-    <h1 class="hero-name">Sagar<br><span class="line2">Agarwal</span></h1>
-    <p class="hero-desc">Building AI systems, safety tech, and blockchain platforms. Turning ambitious ideas into working products.</p>
-    <div class="hero-cta">
-      <a href="#projects" class="btn btn-primary">View Projects →</a>
-      <a href="mailto:tnbtsper30@gmail.com" class="btn btn-outline">Get in Touch</a>
+  <section class="hero" id="home">
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Pre-final year · BIT Mesra · CS 2027</div>
+      <h1 class="hero-name">Sagar<br><span class="line2">Agarwal</span></h1>
+      <p class="hero-desc">Building AI systems, safety tech, and blockchain platforms. Turning ambitious ideas into
+        working products.</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View Projects →</a>
+        <a href="mailto:tnbtsper30@gmail.com" class="btn btn-outline">Get in Touch</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">8.56<sup>*</sup></div>
+          <div class="stat-label">CGPA at BIT Mesra</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">700<sup>+</sup></div>
+          <div class="stat-label">LeetCode Problems</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">9</div>
+          <div class="stat-label">Live Projects</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">$1300</div>
+          <div class="stat-label">Hackathon Prize</div>
+        </div>
+      </div>
     </div>
-    <div class="hero-stats">
-      <div class="stat"><div class="stat-num">8.47<sup>*</sup></div><div class="stat-label">CGPA at BIT Mesra</div></div>
-      <div class="stat"><div class="stat-num">500<sup>+</sup></div><div class="stat-label">LeetCode Problems</div></div>
-      <div class="stat"><div class="stat-num">9</div><div class="stat-label">Live Projects</div></div>
-      <div class="stat"><div class="stat-num">$250</div><div class="stat-label">Hackathon Prize</div></div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="about">
-  <div class="about-grid">
-    <div class="about-visual reveal">
-      <div class="av-initials">S<span>A</span></div>
-      <div class="av-bar"></div>
-      <div class="av-sub">Computer Science · 2023–2027</div>
-      <div class="av-badge">Open to opportunities</div>
-    </div>
-    <div class="about-text reveal">
-      <div class="section-label">About Me</div>
-      <h2 class="section-title">Building with<br><em style="color:var(--muted);font-style:italic">purpose &amp; precision</em></h2>
-      <p>I'm a <strong>CS undergraduate</strong> at BIT Mesra passionate about applying technology to real problems</p>
-      <p>I've incubated a startup at <strong>Bhamasha Techno Hub</strong>, reached hackathon finals, and consistently ship code that works. My focus spans <strong>ML/NLP, full-stack</strong>.</p>
-      <div class="skills-grid">
-        <span class="skill-tag">Python</span><span class="skill-tag">React JS</span><span class="skill-tag">Dart / Flutter</span><span class="skill-tag">Java</span><span class="skill-tag">SQL</span><span class="skill-tag">Solidity</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">Scikit-learn</span><span class="skill-tag">Firebase</span><span class="skill-tag">GCP</span><span class="skill-tag">RAG / NLP</span><span class="skill-tag">Smart Contracts</span><span class="skill-tag">DSA</span><span class="skill-tag">OOP</span>
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="av-initials">S<span>A</span></div>
+        <div class="av-bar"></div>
+        <div class="av-sub">Computer Science · 2023–2027</div>
+        <div class="av-badge">Open to opportunities</div>
+      </div>
+      <div class="about-text reveal">
+        <div class="section-label">About Me</div>
+        <h2 class="section-title">Building with<br><em style="color:var(--muted);font-style:italic">purpose &amp;
+            precision</em></h2>
+        <p>I'm a <strong>CS undergraduate</strong> at BIT Mesra passionate about applying technology to real problems
+        </p>
+        <p>I've incubated a startup at <strong>Bhamasha Techno Hub</strong>, reached hackathon finals, and consistently
+          ship code that works. My focus spans <strong>ML/NLP, full-stack</strong>.</p>
+        <div class="skills-grid">
+          <span class="skill-tag">Python</span><span class="skill-tag">React JS</span><span class="skill-tag">Dart /
+            Flutter</span><span class="skill-tag">Java</span><span class="skill-tag">SQL</span><span
+            class="skill-tag">Solidity</span><span class="skill-tag">TensorFlow</span><span
+            class="skill-tag">Scikit-learn</span><span class="skill-tag">Firebase</span><span
+            class="skill-tag">GCP</span><span class="skill-tag">RAG / NLP</span><span class="skill-tag">Smart
+            Contracts</span><span class="skill-tag">DSA</span><span class="skill-tag">OOP</span>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="projects">
-  <div class="reveal">
-    <div class="section-label">Selected Work</div>
-    <h2 class="section-title">Projects that ship</h2>
-  </div>
-  <div class="projects-grid">
-    <div class="project-card reveal">
-      <div class="project-num">01 / ML · NLP</div>
-      <div class="project-icon">🧠</div>
-      <div class="project-title">Smart Product Pricing</div>
-      <div class="project-desc">ML ensemble predicting product prices from text, numeric, and image features. Hybrid model using Random Forest, Gradient Boosting, and MLP with advanced NLP feature engineering.</div>
-      <div class="project-metrics">
-        <span class="metric metric-blue">Top 2000 / 7000+ teams</span>
-        <span class="metric metric-green">54% SMAPE</span>
+  <section id="projects">
+    <div class="reveal">
+      <div class="section-label">Selected Work</div>
+      <h2 class="section-title">Projects that ship</h2>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card reveal">
+        <div class="project-num">01 / E-Governance · Middleware</div>
+        <div class="project-icon">🚦</div>
+        <div class="project-title">Sanchaar Setu</div>
+        <div class="project-desc">E-governance middleware enabling secure, tamper-evident communication between
+          government departments. Features Kafka-based async messaging, hash-chained audit logs, PII scrubbing, RBAC,
+          and rate limiting.</div>
+        <div class="project-metrics">
+          <span class="metric metric-green">Production-grade</span>
+          <span class="metric metric-blue">Tamper-evident logs</span>
+          <span class="metric metric-red">PII protection</span>
+        </div>
+        <div class="project-tags"><span class="tag">Python</span><span class="tag">Kafka</span><span
+            class="tag">Docker</span><span class="tag">Redis</span><span class="tag">FastAPI</span><span
+            class="tag">PostgreSQL</span></div>
+        <div class="project-actions">
+          <a href="project-sanchaarsetu.html" class="project-btn">View Detailed →</a>
+          <a href="https://github.com/SagarAgarwal2" target="_blank" class="project-link">View on GitHub →</a>
+        </div>
       </div>
-      <div class="project-tags"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">TF-IDF</span><span class="tag">Gradient Boosting</span><span class="tag">MLP</span></div>
-      <div class="project-actions">
-        <a href="project-pricing.html" class="project-btn">View Detailed →</a>
-        <a href="https://github.com/SagarAgarwal2" target="_blank" class="project-link">View on GitHub →</a>
+      <div class="project-card reveal">
+        <div class="project-num">02 / Mobile · Safety</div>
+        <div class="project-icon">🛡️</div>
+        <div class="project-title">SaviHer — Safety App</div>
+        <div class="project-desc">Founder &amp; developer of a women's safety app with SOS alerts capturing real-time
+          images and notifying emergency contacts in 2.5 seconds. Incubated at Bhamasha Techno Hub.</div>
+        <div class="project-metrics">
+          <span class="metric metric-red">2.5s SOS response</span>
+          <span class="metric metric-green">70% faster help</span>
+          <span class="metric metric-blue">Incubated</span>
+        </div>
+        <div class="project-tags"><span class="tag">Flutter</span><span class="tag">Dart</span><span
+            class="tag">Firebase</span><span class="tag">GCP</span><span class="tag">Twilio</span></div>
+        <div class="project-actions">
+          <a href="project-saviher.html" class="project-btn">View Detailed →</a>
+          <a href="https://github.com/SagarAgarwal2" target="_blank" class="project-link">View on GitHub →</a>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-num">03 / Blockchain · Energy</div>
+        <div class="project-icon">⚡</div>
+        <div class="project-title">Solar-Chain</div>
+        <div class="project-desc">Peer-to-peer solar energy trading on Algorand. Direct energy trading reduces coal
+          dependency. Reached Round 3 of the Algorand hackathon and won $250.</div>
+        <div class="project-metrics">
+          <span class="metric metric-gold">$250 prize</span>
+          <span class="metric metric-green">40–50% less coal</span>
+          <span class="metric metric-blue">Hackathon Round 3</span>
+        </div>
+        <div class="project-tags"><span class="tag">Solidity</span><span class="tag">Python</span><span
+            class="tag">Algorand</span><span class="tag">Smart Contracts</span></div>
+        <div class="project-actions">
+          <a href="project-solarchain.html" class="project-btn">View Detailed →</a>
+          <a href="https://github.com/SagarAgarwal2" target="_blank" class="project-link">View on GitHub →</a>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-num">04 / ML · NLP</div>
+        <div class="project-icon">🧠</div>
+        <div class="project-title">Smart Product Pricing</div>
+        <div class="project-desc">ML ensemble predicting product prices from text, numeric, and image features. Hybrid
+          model using Random Forest, Gradient Boosting, and MLP with advanced NLP feature engineering.</div>
+        <div class="project-metrics">
+          <span class="metric metric-blue">Top 2000 / 7000+ teams</span>
+          <span class="metric metric-green">54% SMAPE</span>
+        </div>
+        <div class="project-tags"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span
+            class="tag">TF-IDF</span><span class="tag">Gradient Boosting</span><span class="tag">MLP</span></div>
+        <div class="project-actions">
+          <a href="project-pricing.html" class="project-btn">View Detailed →</a>
+          <a href="https://github.com/SagarAgarwal2" target="_blank" class="project-link">View on GitHub →</a>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-num">05 / AI · Automation</div>
+        <div class="project-icon">🤖</div>
+        <div class="project-title">Agentic RFP Automation</div>
+        <div class="project-desc">Multi-agent AI platform for the paint industry automating RFP analysis, vendor
+          selection, and pricing. RAG-based semantic matching with real-time decision intelligence.</div>
+        <div class="project-metrics">
+          <span class="metric metric-green">99% faster (3h → 7s)</span>
+          <span class="metric metric-blue">90% match accuracy</span>
+        </div>
+        <div class="project-tags"><span class="tag">React</span><span class="tag">RAG</span><span
+            class="tag">NLP</span><span class="tag">Firebase</span><span class="tag">PDF.js</span></div>
+        <div class="project-actions">
+          <a href="project-rfp.html" class="project-btn">View Detailed →</a>
+          <a href="https://github.com/SagarAgarwal2" target="_blank" class="project-link">View on GitHub →</a>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-num">06 / Full-Stack · Real-Time</div>
+        <div class="project-icon">🔨</div>
+        <div class="project-title">Battle of Bytes — Live Auction</div>
+        <div class="project-desc">React-based live auction platform with real-time bidding dashboard, team polling, and
+          interactive UI. Firebase Firestore powers real-time updates and bid tracking with countdown timers and sound
+          effects.</div>
+        <div class="project-metrics">
+          <span class="metric metric-blue">Real-time bidding</span>
+          <span class="metric metric-green">Interactive UI</span>
+        </div>
+        <div class="project-tags"><span class="tag">React</span><span class="tag">Firebase Firestore</span><span
+            class="tag">Framer Motion</span><span class="tag">Web Audio API</span><span class="tag">CSS3</span></div>
+        <div class="project-actions">
+          <a href="project-auction.html" class="project-btn">View Detailed →</a>
+          <a href="https://github.com/SagarAgarwal2" target="_blank" class="project-link">View on GitHub →</a>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-num">07 / AI · Simulation</div>
+        <div class="project-icon">🧬</div>
+        <div class="project-title">Digital Twin Market Engine — FMCG Simulator</div>
+        <div class="project-desc">Market simulation platform modeling FMCG launches. TensorFlow.js powers neural
+          networks, K-Means clustering, and regression to predict purchase probability and pricing for 25,000 synthetic
+          personas.</div>
+        <div class="project-metrics">
+          <span class="metric metric-blue">25k personas</span>
+          <span class="metric metric-green">ML-powered</span>
+        </div>
+        <div class="project-tags"><span class="tag">React</span><span class="tag">TensorFlow.js</span><span
+            class="tag">Chart.js</span><span class="tag">K-Means</span><span class="tag">Neural Networks</span></div>
+        <div class="project-actions">
+          <a href="project-digitaltwin.html" class="project-btn">View Detailed →</a>
+          <a href="https://github.com/SagarAgarwal2" target="_blank" class="project-link">View on GitHub →</a>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-num">08 / Blockchain · Logistics</div>
+        <div class="project-icon">📦</div>
+        <div class="project-title">Supply Chain Tracker</div>
+        <div class="project-desc">Blockchain-powered supply chain transparency platform with end-to-end product
+          tracking, smart contract verification, and real-time analytics. Immutable ledger ensures provenance and
+          anti-counterfeiting across the logistics pipeline.</div>
+        <div class="project-metrics">
+          <span class="metric metric-blue">Immutable ledger</span>
+          <span class="metric metric-green">Real-time tracking</span>
+          <span class="metric metric-gold">Smart contracts</span>
+        </div>
+        <div class="project-tags"><span class="tag">Solidity</span><span class="tag">React</span><span
+            class="tag">Node.js</span><span class="tag">Ethereum</span><span class="tag">IPFS</span><span
+            class="tag">Web3.js</span></div>
+        <div class="project-actions">
+          <a href="project-supplychain.html" class="project-btn">View Detailed →</a>
+          <a href="https://github.com/SagarAgarwal2" target="_blank" class="project-link">View on GitHub →</a>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-num">09 / AI · FinTech</div>
+        <div class="project-icon">💰</div>
+        <div class="project-title">AI Money Mentor</div>
+        <div class="project-desc">AI-powered personal finance advisor that analyzes spending patterns, predicts budgets,
+          and delivers actionable savings recommendations. NLP-driven conversational interface makes financial planning
+          intuitive and accessible.</div>
+        <div class="project-metrics">
+          <span class="metric metric-green">Smart budgeting</span>
+          <span class="metric metric-blue">NLP-powered</span>
+          <span class="metric metric-gold">Predictive analytics</span>
+        </div>
+        <div class="project-tags"><span class="tag">Python</span><span class="tag">TensorFlow</span><span
+            class="tag">React</span><span class="tag">FastAPI</span><span class="tag">NLP</span><span
+            class="tag">Chart.js</span></div>
+        <div class="project-actions">
+          <a href="project-aimoneymentor.html" class="project-btn">View Detailed →</a>
+          <a href="https://github.com/SagarAgarwal2" target="_blank" class="project-link">View on GitHub →</a>
+        </div>
       </div>
     </div>
-    <div class="project-card reveal">
-      <div class="project-num">02 / AI · Automation</div>
-      <div class="project-icon">🤖</div>
-      <div class="project-title">Agentic RFP Automation</div>
-      <div class="project-desc">Multi-agent AI platform for the paint industry automating RFP analysis, vendor selection, and pricing. RAG-based semantic matching with real-time decision intelligence.</div>
-      <div class="project-metrics">
-        <span class="metric metric-green">99% faster (3h → 7s)</span>
-        <span class="metric metric-blue">90% match accuracy</span>
-      </div>
-      <div class="project-tags"><span class="tag">React</span><span class="tag">RAG</span><span class="tag">NLP</span><span class="tag">Firebase</span><span class="tag">PDF.js</span></div>
-      <div class="project-actions">
-        <a href="project-rfp.html" class="project-btn">View Detailed →</a>
-        <a href="https://github.com/SagarAgarwal2" target="_blank" class="project-link">View on GitHub →</a>
-      </div>
-    </div>
-    <div class="project-card reveal">
-      <div class="project-num">03 / Mobile · Safety</div>
-      <div class="project-icon">🛡️</div>
-      <div class="project-title">SaviHer — Safety App</div>
-      <div class="project-desc">Founder &amp; developer of a women's safety app with SOS alerts capturing real-time images and notifying emergency contacts in 2.5 seconds. Incubated at Bhamasha Techno Hub.</div>
-      <div class="project-metrics">
-        <span class="metric metric-red">2.5s SOS response</span>
-        <span class="metric metric-green">70% faster help</span>
-        <span class="metric metric-blue">Incubated</span>
-      </div>
-      <div class="project-tags"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Firebase</span><span class="tag">GCP</span><span class="tag">Twilio</span></div>
-      <div class="project-actions">
-        <a href="project-saviher.html" class="project-btn">View Detailed →</a>
-        <a href="https://github.com/SagarAgarwal2" target="_blank" class="project-link">View on GitHub →</a>
-      </div>
-    </div>
-    <div class="project-card reveal">
-      <div class="project-num">04 / Blockchain · Energy</div>
-      <div class="project-icon">⚡</div>
-      <div class="project-title">Solar-Chain</div>
-      <div class="project-desc">Peer-to-peer solar energy trading on Algorand. Direct energy trading reduces coal dependency. Reached Round 3 of the Algorand hackathon and won $250.</div>
-      <div class="project-metrics">
-        <span class="metric metric-gold">$250 prize</span>
-        <span class="metric metric-green">40–50% less coal</span>
-        <span class="metric metric-blue">Hackathon Round 3</span>
-      </div>
-      <div class="project-tags"><span class="tag">Solidity</span><span class="tag">Python</span><span class="tag">Algorand</span><span class="tag">Smart Contracts</span></div>
-      <div class="project-actions">
-        <a href="project-solarchain.html" class="project-btn">View Detailed →</a>
-        <a href="https://github.com/SagarAgarwal2" target="_blank" class="project-link">View on GitHub →</a>
-      </div>
-    </div>
-    <div class="project-card reveal">
-      <div class="project-num">05 / Full-Stack · Real-Time</div>
-      <div class="project-icon">🔨</div>
-      <div class="project-title">Battle of Bytes — Live Auction</div>
-      <div class="project-desc">React-based live auction platform with real-time bidding dashboard, team polling, and interactive UI. Firebase Firestore powers real-time updates and bid tracking with countdown timers and sound effects.</div>
-      <div class="project-metrics">
-        <span class="metric metric-blue">Real-time bidding</span>
-        <span class="metric metric-green">Interactive UI</span>
-      </div>
-      <div class="project-tags"><span class="tag">React</span><span class="tag">Firebase Firestore</span><span class="tag">Framer Motion</span><span class="tag">Web Audio API</span><span class="tag">CSS3</span></div>
-      <div class="project-actions">
-        <a href="project-auction.html" class="project-btn">View Detailed →</a>
-        <a href="https://github.com/SagarAgarwal2" target="_blank" class="project-link">View on GitHub →</a>
-      </div>
-    </div>
-    <div class="project-card reveal">
-      <div class="project-num">06 / AI · Simulation</div>
-      <div class="project-icon">🧬</div>
-      <div class="project-title">Digital Twin Market Engine — FMCG Simulator</div>
-      <div class="project-desc">Market simulation platform modeling FMCG launches. TensorFlow.js powers neural networks, K-Means clustering, and regression to predict purchase probability and pricing for 25,000 synthetic personas.</div>
-      <div class="project-metrics">
-        <span class="metric metric-blue">25k personas</span>
-        <span class="metric metric-green">ML-powered</span>
-      </div>
-      <div class="project-tags"><span class="tag">React</span><span class="tag">TensorFlow.js</span><span class="tag">Chart.js</span><span class="tag">K-Means</span><span class="tag">Neural Networks</span></div>
-      <div class="project-actions">
-        <a href="project-digitaltwin.html" class="project-btn">View Detailed →</a>
-        <a href="https://github.com/SagarAgarwal2" target="_blank" class="project-link">View on GitHub →</a>
-      </div>
-    </div>
-    <div class="project-card reveal">
-      <div class="project-num">07 / E-Governance · Middleware</div>
-      <div class="project-icon">🚦</div>
-      <div class="project-title">Sanchaar Setu</div>
-      <div class="project-desc">E-governance middleware enabling secure, tamper-evident communication between government departments. Features Kafka-based async messaging, hash-chained audit logs, PII scrubbing, RBAC, and rate limiting.</div>
-      <div class="project-metrics">
-        <span class="metric metric-green">Production-grade</span>
-        <span class="metric metric-blue">Tamper-evident logs</span>
-        <span class="metric metric-red">PII protection</span>
-      </div>
-      <div class="project-tags"><span class="tag">Python</span><span class="tag">Kafka</span><span class="tag">Docker</span><span class="tag">Redis</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span></div>
-      <div class="project-actions">
-        <a href="project-sanchaarsetu.html" class="project-btn">View Detailed →</a>
-        <a href="https://github.com/SagarAgarwal2" target="_blank" class="project-link">View on GitHub →</a>
-      </div>
-    </div>
-    <div class="project-card reveal">
-      <div class="project-num">08 / Blockchain · Logistics</div>
-      <div class="project-icon">📦</div>
-      <div class="project-title">Supply Chain Tracker</div>
-      <div class="project-desc">Blockchain-powered supply chain transparency platform with end-to-end product tracking, smart contract verification, and real-time analytics. Immutable ledger ensures provenance and anti-counterfeiting across the logistics pipeline.</div>
-      <div class="project-metrics">
-        <span class="metric metric-blue">Immutable ledger</span>
-        <span class="metric metric-green">Real-time tracking</span>
-        <span class="metric metric-gold">Smart contracts</span>
-      </div>
-      <div class="project-tags"><span class="tag">Solidity</span><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Ethereum</span><span class="tag">IPFS</span><span class="tag">Web3.js</span></div>
-      <div class="project-actions">
-        <a href="project-supplychain.html" class="project-btn">View Detailed →</a>
-        <a href="https://github.com/SagarAgarwal2" target="_blank" class="project-link">View on GitHub →</a>
-      </div>
-    </div>
-    <div class="project-card reveal">
-      <div class="project-num">09 / AI · FinTech</div>
-      <div class="project-icon">💰</div>
-      <div class="project-title">AI Money Mentor</div>
-      <div class="project-desc">AI-powered personal finance advisor that analyzes spending patterns, predicts budgets, and delivers actionable savings recommendations. NLP-driven conversational interface makes financial planning intuitive and accessible.</div>
-      <div class="project-metrics">
-        <span class="metric metric-green">Smart budgeting</span>
-        <span class="metric metric-blue">NLP-powered</span>
-        <span class="metric metric-gold">Predictive analytics</span>
-      </div>
-      <div class="project-tags"><span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">React</span><span class="tag">FastAPI</span><span class="tag">NLP</span><span class="tag">Chart.js</span></div>
-      <div class="project-actions">
-        <a href="project-aimoneymentor.html" class="project-btn">View Detailed →</a>
-        <a href="https://github.com/SagarAgarwal2" target="_blank" class="project-link">View on GitHub →</a>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="achievements">
-  <div class="reveal">
-    <div class="section-label">Recognition</div>
-    <h2 class="section-title">Achievements &amp; Roles</h2>
-  </div>
-  <div class="ach-grid">
-    <div class="ach-card reveal"><div class="ach-icon">🏆</div><div><div class="ach-title">Algorand Hackathon Finalist</div><div class="ach-desc">Built a scalable P2P energy trading platform. Awarded $250 for reaching Round 3.</div><div class="ach-date">Dec 2024</div></div></div>
-    <div class="ach-card reveal"><div class="ach-icon">🇮🇳</div><div><div class="ach-title">Smart India Hackathon — Top 10</div><div class="ach-desc">Selected among top 10 campus teams for national-level competition.</div><div class="ach-date">Sept 2024</div></div></div>
-    <div class="ach-card reveal"><div class="ach-icon">💡</div><div><div class="ach-title">Incubated at Bhamasha Techno Hub</div><div class="ach-desc">SaviHer secured incubation; applied for iSTART state funding.</div><div class="ach-date">2024 – Present</div></div></div>
-    <div class="ach-card reveal"><div class="ach-icon">💻</div><div><div class="ach-title">500+ LeetCode Problems</div><div class="ach-desc">Consistent problem-solving across DSA and competitive programming.</div><div class="ach-date">2023 – Present</div></div></div>
-    <div class="ach-card reveal"><div class="ach-icon">🔐</div><div><div class="ach-title">Cyber Security Lead, GDG</div><div class="ach-desc">Leading the app development team under Google Developer Group at BIT Mesra.</div><div class="ach-date">Sept 2025</div></div></div>
-    <div class="ach-card reveal"><div class="ach-icon">🎓</div><div><div class="ach-title">CGPA: 8.47 — BIT Mesra</div><div class="ach-desc">Strong academics maintained while shipping real-world products.</div><div class="ach-date">2023 – 2027</div></div></div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="contact-inner reveal">
-    <div class="section-label">Let's Talk</div>
-    <h2 class="contact-big">Got an idea?<br><em>Let's build it.</em></h2>
-    <p class="contact-sub">Open to internships, collaborations, and hackathons. Drop a message — I read everything.</p>
-    <div class="contact-links">
-      <a href="mailto:tnbtsper30@gmail.com" class="contact-chip">📧 Email</a>
-      <a href="https://linkedin.com/in/sagar-agarwal-212930283" target="_blank" class="contact-chip">💼 LinkedIn</a>
-      <a href="https://github.com/SagarAgarwal2" target="_blank" class="contact-chip">🐙 GitHub</a>
-      <a href="https://leetcode.com/tnbtsper30" target="_blank" class="contact-chip">⚡ LeetCode</a>
+  <section id="achievements">
+    <div class="reveal">
+      <div class="section-label">Recognition</div>
+      <h2 class="section-title">Achievements &amp; Roles</h2>
     </div>
-  </div>
-</section>
+    <div class="ach-grid">
+      <div class="ach-card reveal">
+        <div class="ach-icon">🏆</div>
+        <div>
+          <div class="ach-title">Prize Winner (₹1,00,000) – AI FOR BHARAT HACKATHON by PAN IIT</div>
+          <div class="ach-desc">Recognized as winners for Sanchaar Setu; evaluated by Joint Directors, Dept. of Industry
+            &amp; Commerce, Govt. of Karnataka, with EY as EODB knowledge partner.</div>
+          <div class="ach-date">May 2026</div>
+        </div>
+      </div>
+      <div class="ach-card reveal">
+        <div class="ach-icon">🏆</div>
+        <div>
+          <div class="ach-title">Won 250$ – Algorand Hackathon Finalist</div>
+          <div class="ach-desc">Built a scalable P2P energy trading platform. Awarded $250 for reaching Round 3.</div>
+          <div class="ach-date">Dec 2024</div>
+        </div>
+      </div>
+      <div class="ach-card reveal">
+        <div class="ach-icon">🇮🇳</div>
+        <div>
+          <div class="ach-title">Smart India Hackathon — Top 10</div>
+          <div class="ach-desc">Selected among top 10 campus teams for national-level competition.</div>
+          <div class="ach-date">Sept 2024</div>
+        </div>
+      </div>
+      <div class="ach-card reveal">
+        <div class="ach-icon">💡</div>
+        <div>
+          <div class="ach-title">Incubated at Bhamasha Techno Hub</div>
+          <div class="ach-desc">SaviHer secured incubation; applied for iSTART state funding.</div>
+          <div class="ach-date">2024 – Present</div>
+        </div>
+      </div>
+      <div class="ach-card reveal">
+        <div class="ach-icon">🥷</div>
+        <div>
+          <div class="ach-title">Knight At Leetcode</div>
+          <div class="ach-desc">Consistent problem-solving across DSA and competitive programming.</div>
+          <div class="ach-date">2023 – Present</div>
+        </div>
+      </div>
+      <div class="ach-card reveal">
+        <div class="ach-icon">🔐</div>
+        <div>
+          <div class="ach-title">Cyber Security Lead, GDG</div>
+          <div class="ach-desc">Leading the app development team under Google Developer Group at BIT Mesra.</div>
+          <div class="ach-date">Sept 2025</div>
+        </div>
+      </div>
+      <div class="ach-card reveal">
+        <div class="ach-icon">🎓</div>
+        <div>
+          <div class="ach-title">CGPA: 8.56 — BIT Mesra</div>
+          <div class="ach-desc">Strong academics maintained while shipping real-world products.</div>
+          <div class="ach-date">2023 – 2027</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<footer>
-  <p>© 2026 Sagar Agarwal — Jaipur, India</p>
-</footer>
+  <section id="contact">
+    <div class="contact-inner reveal">
+      <div class="section-label">Let's Talk</div>
+      <h2 class="contact-big">Got an idea?<br><em>Let's build it.</em></h2>
+      <p class="contact-sub">Open to internships, collaborations, and hackathons. Drop a message — I read everything.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:tnbtsper30@gmail.com" class="contact-chip">📧 Email</a>
+        <a href="https://linkedin.com/in/sagar-agarwal-212930283" target="_blank" class="contact-chip">💼 LinkedIn</a>
+        <a href="https://github.com/SagarAgarwal2" target="_blank" class="contact-chip">🐙 GitHub</a>
+        <a href="https://leetcode.com/tnbtsper30" target="_blank" class="contact-chip">⚡ LeetCode</a>
+      </div>
+    </div>
+  </section>
 
-<script>
-  const toggle = document.getElementById('themeToggle');
-  const knob = document.getElementById('toggleKnob');
-  const html = document.documentElement;
+  <footer>
+    <p>© 2026 Sagar Agarwal — Jaipur, India</p>
+  </footer>
 
-  const saved = localStorage.getItem('sa-theme') || 'light';
-  html.setAttribute('data-theme', saved);
-  knob.textContent = saved === 'dark' ? '🌙' : '☀️';
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const knob = document.getElementById('toggleKnob');
+    const html = document.documentElement;
 
-  toggle.addEventListener('click', () => {
-    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-theme', next);
-    knob.textContent = next === 'dark' ? '🌙' : '☀️';
-    localStorage.setItem('sa-theme', next);
-  });
+    const saved = localStorage.getItem('sa-theme') || 'light';
+    html.setAttribute('data-theme', saved);
+    knob.textContent = saved === 'dark' ? '🌙' : '☀️';
 
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        e.target.style.transitionDelay = (i % 4) * 0.08 + 's';
-        e.target.classList.add('visible');
-        io.unobserve(e.target);
-      }
+    toggle.addEventListener('click', () => {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      knob.textContent = next === 'dark' ? '🌙' : '☀️';
+      localStorage.setItem('sa-theme', next);
     });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(r => io.observe(r));
 
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  window.addEventListener('scroll', () => {
-    let cur = '';
-    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 200) cur = s.id; });
-    navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--text)' : ''; });
-  });
-</script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          e.target.style.transitionDelay = (i % 4) * 0.08 + 's';
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(r => io.observe(r));
+
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let cur = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 200) cur = s.id; });
+      navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--text)' : ''; });
+    });
+  </script>
 </body>
+
 </html>
