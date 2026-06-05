@@ -70,6 +70,40 @@
   </div>
 
   <div class="section">
+    <h2 class="section-title">Screenshots</h2>
+    <div class="section-content">
+      <p>A walkthrough of the Sanchaar Setu platform interface — from real-time monitoring to tamper-evident audit trails.</p>
+    </div>
+    <div class="screenshots-grid">
+      <div class="screenshot-item">
+        <img src="assests/ss-sanchaarsetu-1.png" alt="Sanchaar Setu Dashboard" loading="lazy">
+        <div class="screenshot-caption">Dashboard — high-level metrics: Total Events, Success Rate, Active Conflicts &amp; Recent Propagation Events</div>
+      </div>
+      <div class="screenshot-item">
+        <img src="assests/ss-sanchaarsetu-2.png" alt="Live Event Feed" loading="lazy">
+        <div class="screenshot-caption">Live Event Feed — real-time table showing UBID, Type, Source, Destination, Latency &amp; Retry counts</div>
+      </div>
+      <div class="screenshot-item">
+        <img src="assests/ss-sanchaarsetu-3.png" alt="Conflict Resolver" loading="lazy">
+        <div class="screenshot-caption">Conflict Resolver — open/resolved conflict summaries with selectable policies (SWS Wins, Last-Write Wins)</div>
+      </div>
+      <div class="screenshot-item">
+        <img src="assests/ss-sanchaarsetu-4.png" alt="Schema Mappings" loading="lazy">
+        <div class="screenshot-caption">Schema Mappings — AI-powered semantic field mapping registry with confidence scores across department systems</div>
+      </div>
+      <div class="screenshot-item">
+        <img src="assests/ss-sanchaarsetu-5.png" alt="Audit Trail" loading="lazy">
+        <div class="screenshot-caption">Audit Trail — append-only, hash-chained tamper-evident log of all system events and outcomes</div>
+      </div>
+      <div class="screenshot-item">
+        <img src="assests/ss-sanchaarsetu-6.png" alt="Department Systems" loading="lazy">
+        <div class="screenshot-caption">Department Systems — Tier 1/2/3 external integrations (Webhook, Polling, Snapshot) with live connection status</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="section">
     <h2 class="section-title">Project Overview</h2>
     <div class="section-content">
       <p><strong>Sanchaar Setu</strong> ("Bridge of Communication") is an enterprise middleware platform designed for Indian e-governance infrastructure. It enables secure, reliable, and auditable communication between independent government departments — solving the critical challenge of data consistency and traceability across disparate systems.</p>
@@ -112,39 +146,6 @@
     </div>
   </div>
 
-  <div class="section">
-    <h2 class="section-title">Screenshots</h2>
-    <div class="section-content">
-      <p>A walkthrough of the Sanchaar Setu platform interface — from real-time monitoring to tamper-evident audit trails.</p>
-    </div>
-    <div class="screenshots-grid">
-      <div class="screenshot-item">
-        <img src="assests/ss-sanchaarsetu-1.png" alt="Sanchaar Setu Dashboard" loading="lazy">
-        <div class="screenshot-caption">Dashboard — high-level metrics: Total Events, Success Rate, Active Conflicts &amp; Recent Propagation Events</div>
-      </div>
-      <div class="screenshot-item">
-        <img src="assests/ss-sanchaarsetu-2.png" alt="Live Event Feed" loading="lazy">
-        <div class="screenshot-caption">Live Event Feed — real-time table showing UBID, Type, Source, Destination, Latency &amp; Retry counts</div>
-      </div>
-      <div class="screenshot-item">
-        <img src="assests/ss-sanchaarsetu-3.png" alt="Conflict Resolver" loading="lazy">
-        <div class="screenshot-caption">Conflict Resolver — open/resolved conflict summaries with selectable policies (SWS Wins, Last-Write Wins)</div>
-      </div>
-      <div class="screenshot-item">
-        <img src="assests/ss-sanchaarsetu-4.png" alt="Schema Mappings" loading="lazy">
-        <div class="screenshot-caption">Schema Mappings — AI-powered semantic field mapping registry with confidence scores across department systems</div>
-      </div>
-      <div class="screenshot-item">
-        <img src="assests/ss-sanchaarsetu-5.png" alt="Audit Trail" loading="lazy">
-        <div class="screenshot-caption">Audit Trail — append-only, hash-chained tamper-evident log of all system events and outcomes</div>
-      </div>
-      <div class="screenshot-item">
-        <img src="assests/ss-sanchaarsetu-6.png" alt="Department Systems" loading="lazy">
-        <div class="screenshot-caption">Department Systems — Tier 1/2/3 external integrations (Webhook, Polling, Snapshot) with live connection status</div>
-      </div>
-    </div>
-  </div>
-
   <div class="cta-section">
     <a href="https://github.com/SagarAgarwal2" target="_blank" class="btn btn-primary">View Code on GitHub →</a>
   </div>
@@ -155,5 +156,82 @@
   const saved=localStorage.getItem('sa-theme')||'light';html.setAttribute('data-theme',saved);knob.textContent=saved==='dark'?'🌙':'☀️';
   toggle.addEventListener('click',()=>{const next=html.getAttribute('data-theme')==='dark'?'light':'dark';html.setAttribute('data-theme',next);knob.textContent=next==='dark'?'🌙':'☀️';localStorage.setItem('sa-theme',next);});
 </script>
+
+<style>
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  align-items: center;
+  justify-content: center;
+}
+.lightbox.active {
+  display: flex;
+}
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  animation: zoomIn 0.3s ease;
+}
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.lightbox-close:hover {
+  color: #ccc;
+}
+@keyframes zoomIn {
+  from {transform: scale(0.9); opacity: 0;}
+  to {transform: scale(1); opacity: 1;}
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const lightbox = document.createElement("div");
+  lightbox.id = "lightbox";
+  lightbox.className = "lightbox";
+  lightbox.innerHTML = `
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+  `;
+  document.body.appendChild(lightbox);
+
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.querySelector(".lightbox-close");
+
+  document.querySelectorAll(".screenshot-item img").forEach(img => {
+    img.style.cursor = "zoom-in";
+    img.addEventListener("click", () => {
+      lightbox.classList.add("active");
+      lightboxImg.src = img.src;
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    lightbox.classList.remove("active");
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target !== lightboxImg) {
+      lightbox.classList.remove("active");
+    }
+  });
+});
+</script>
+
 </body>
 </html>

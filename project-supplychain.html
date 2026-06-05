@@ -70,6 +70,28 @@
   </div>
 
   <div class="section">
+    <h2 class="section-title">Screenshots</h2>
+    <div class="section-content">
+      <p>A visual walkthrough of the Supply Chain Tracker — from product registration on-chain to end-to-end shipment traceability.</p>
+    </div>
+    <div class="screenshots-grid">
+      <div class="screenshot-item">
+        <img src="assests/ss-supplychain-1.png" alt="Supply Chain Dashboard" loading="lazy">
+        <div class="screenshot-caption">Dashboard — live overview of tracked products, active shipments, and blockchain transaction status</div>
+      </div>
+      <div class="screenshot-item">
+        <img src="assests/ss-supplychain-2.png" alt="Product Tracking" loading="lazy">
+        <div class="screenshot-caption">Product Journey — end-to-end traceability view showing each checkpoint, handler, timestamp &amp; location</div>
+      </div>
+      <div class="screenshot-item">
+        <img src="assests/ss-supplychain-3.png" alt="Smart Contract Verification" loading="lazy">
+        <div class="screenshot-caption">Blockchain Verification — on-chain smart contract records with provenance proof and anti-counterfeiting QR</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="section">
     <h2 class="section-title">Project Overview</h2>
     <div class="section-content">
       <p><strong>Supply Chain Tracker</strong> is a decentralized platform that brings transparency and traceability to product supply chains using blockchain technology. Every stage of the supply chain — from raw material sourcing to final delivery — is recorded as an immutable transaction on the Ethereum blockchain.</p>
@@ -114,27 +136,6 @@
     </div>
   </div>
 
-  <div class="section">
-    <h2 class="section-title">Screenshots</h2>
-    <div class="section-content">
-      <p>A visual walkthrough of the Supply Chain Tracker — from product registration on-chain to end-to-end shipment traceability.</p>
-    </div>
-    <div class="screenshots-grid">
-      <div class="screenshot-item">
-        <img src="assests/ss-supplychain-1.png" alt="Supply Chain Dashboard" loading="lazy">
-        <div class="screenshot-caption">Dashboard — live overview of tracked products, active shipments, and blockchain transaction status</div>
-      </div>
-      <div class="screenshot-item">
-        <img src="assests/ss-supplychain-2.png" alt="Product Tracking" loading="lazy">
-        <div class="screenshot-caption">Product Journey — end-to-end traceability view showing each checkpoint, handler, timestamp &amp; location</div>
-      </div>
-      <div class="screenshot-item">
-        <img src="assests/ss-supplychain-3.png" alt="Smart Contract Verification" loading="lazy">
-        <div class="screenshot-caption">Blockchain Verification — on-chain smart contract records with provenance proof and anti-counterfeiting QR</div>
-      </div>
-    </div>
-  </div>
-
   <div class="cta-section">
     <a href="https://github.com/SagarAgarwal2" target="_blank" class="btn btn-primary">View Code on GitHub →</a>
   </div>
@@ -145,5 +146,82 @@
   const saved=localStorage.getItem('sa-theme')||'light';html.setAttribute('data-theme',saved);knob.textContent=saved==='dark'?'🌙':'☀️';
   toggle.addEventListener('click',()=>{const next=html.getAttribute('data-theme')==='dark'?'light':'dark';html.setAttribute('data-theme',next);knob.textContent=next==='dark'?'🌙':'☀️';localStorage.setItem('sa-theme',next);});
 </script>
+
+<style>
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  align-items: center;
+  justify-content: center;
+}
+.lightbox.active {
+  display: flex;
+}
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  animation: zoomIn 0.3s ease;
+}
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.lightbox-close:hover {
+  color: #ccc;
+}
+@keyframes zoomIn {
+  from {transform: scale(0.9); opacity: 0;}
+  to {transform: scale(1); opacity: 1;}
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const lightbox = document.createElement("div");
+  lightbox.id = "lightbox";
+  lightbox.className = "lightbox";
+  lightbox.innerHTML = `
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+  `;
+  document.body.appendChild(lightbox);
+
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.querySelector(".lightbox-close");
+
+  document.querySelectorAll(".screenshot-item img").forEach(img => {
+    img.style.cursor = "zoom-in";
+    img.addEventListener("click", () => {
+      lightbox.classList.add("active");
+      lightboxImg.src = img.src;
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    lightbox.classList.remove("active");
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target !== lightboxImg) {
+      lightbox.classList.remove("active");
+    }
+  });
+});
+</script>
+
 </body>
 </html>

@@ -144,6 +144,41 @@
   </div>
   
   <div class="section">
+    <h2 class="section-title">Screenshots</h2>
+    <div class="screenshots">
+      <div class="screenshot-item">
+        <img src="assests/Screenshot 2026-03-01 080153.png" alt="ML Customer Clusters" style="width: 100%; border-radius: 6px; margin-bottom: 0.7rem;">
+        <p class="screenshot-caption">K-Means clustering identified 6 natural customer segments</p>
+      </div>
+      
+      <div class="screenshot-item">
+        <img src="assests/Screenshot 2026-03-01 080206.png" alt="Groq LLM Intelligence Layer" style="width: 100%; border-radius: 6px; margin-bottom: 0.7rem;">
+        <p class="screenshot-caption">AI Market Analyst powered by Groq + Llama 3.1 for real-time insights</p>
+      </div>
+      
+      <div class="screenshot-item">
+        <img src="assests/Screenshot 2026-03-01 080237.png" alt="Churn & Retention Prediction" style="width: 100%; border-radius: 6px; margin-bottom: 0.7rem;">
+        <p class="screenshot-caption">Segment-wise churn risk analysis with CLV and priority metrics</p>
+      </div>
+      
+      <div class="screenshot-item">
+        <img src="assests/Screenshot 2026-03-01 080254.png" alt="Purchase Probability & Revenue" style="width: 100%; border-radius: 6px; margin-bottom: 0.7rem;">
+        <p class="screenshot-caption">ML vs Rule-Based comparison and revenue optimization curve</p>
+      </div>
+      
+      <div class="screenshot-item">
+        <img src="assests/Screenshot 2026-03-01 080307.png" alt="Product Configuration Dashboard" style="width: 100%; border-radius: 6px; margin-bottom: 0.7rem;">
+        <p class="screenshot-caption">ML-powered optimal pricing with 81.8% confidence score</p>
+      </div>
+      
+      <div class="screenshot-item">
+        <img src="assests/Screenshot 2026-03-01 080326.png" alt="Customer Insights Dashboard" style="width: 100%; border-radius: 6px; margin-bottom: 0.7rem;">
+        <p class="screenshot-caption">Comprehensive customer analytics and behavior insights</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="section">
     <h2 class="section-title">Project Overview</h2>
     <div class="section-content">
       <p><strong>Digital Twin Market Engine</strong> is an advanced simulation platform built for FMCG (Fast-Moving Consumer Goods) companies to model and predict product launch outcomes. Running entirely in the browser using TensorFlow.js, the system simulates <strong>25,000 synthetic customer personas</strong> and uses machine learning to predict purchase probability, customer segmentation, churn risk, and optimal pricing strategies.</p>
@@ -209,41 +244,6 @@
     </div>
   </div>
   
-  <div class="section">
-    <h2 class="section-title">Screenshots</h2>
-    <div class="screenshots">
-      <div class="screenshot-item">
-        <img src="assests/Screenshot 2026-03-01 080153.png" alt="ML Customer Clusters" style="width: 100%; border-radius: 6px; margin-bottom: 0.7rem;">
-        <p class="screenshot-caption">K-Means clustering identified 6 natural customer segments</p>
-      </div>
-      
-      <div class="screenshot-item">
-        <img src="assests/Screenshot 2026-03-01 080206.png" alt="Groq LLM Intelligence Layer" style="width: 100%; border-radius: 6px; margin-bottom: 0.7rem;">
-        <p class="screenshot-caption">AI Market Analyst powered by Groq + Llama 3.1 for real-time insights</p>
-      </div>
-      
-      <div class="screenshot-item">
-        <img src="assests/Screenshot 2026-03-01 080237.png" alt="Churn & Retention Prediction" style="width: 100%; border-radius: 6px; margin-bottom: 0.7rem;">
-        <p class="screenshot-caption">Segment-wise churn risk analysis with CLV and priority metrics</p>
-      </div>
-      
-      <div class="screenshot-item">
-        <img src="assests/Screenshot 2026-03-01 080254.png" alt="Purchase Probability & Revenue" style="width: 100%; border-radius: 6px; margin-bottom: 0.7rem;">
-        <p class="screenshot-caption">ML vs Rule-Based comparison and revenue optimization curve</p>
-      </div>
-      
-      <div class="screenshot-item">
-        <img src="assests/Screenshot 2026-03-01 080307.png" alt="Product Configuration Dashboard" style="width: 100%; border-radius: 6px; margin-bottom: 0.7rem;">
-        <p class="screenshot-caption">ML-powered optimal pricing with 81.8% confidence score</p>
-      </div>
-      
-      <div class="screenshot-item">
-        <img src="assests/Screenshot 2026-03-01 080326.png" alt="Customer Insights Dashboard" style="width: 100%; border-radius: 6px; margin-bottom: 0.7rem;">
-        <p class="screenshot-caption">Comprehensive customer analytics and behavior insights</p>
-      </div>
-    </div>
-  </div>
-  
   <div class="cta-section">
     <a href="https://github.com/SagarAgarwal2" target="_blank" class="btn btn-primary">View Code on GitHub →</a>
   </div>
@@ -265,5 +265,82 @@
     localStorage.setItem('sa-theme', next);
   });
 </script>
+
+<style>
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  align-items: center;
+  justify-content: center;
+}
+.lightbox.active {
+  display: flex;
+}
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  animation: zoomIn 0.3s ease;
+}
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.lightbox-close:hover {
+  color: #ccc;
+}
+@keyframes zoomIn {
+  from {transform: scale(0.9); opacity: 0;}
+  to {transform: scale(1); opacity: 1;}
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const lightbox = document.createElement("div");
+  lightbox.id = "lightbox";
+  lightbox.className = "lightbox";
+  lightbox.innerHTML = `
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+  `;
+  document.body.appendChild(lightbox);
+
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.querySelector(".lightbox-close");
+
+  document.querySelectorAll(".screenshot-item img").forEach(img => {
+    img.style.cursor = "zoom-in";
+    img.addEventListener("click", () => {
+      lightbox.classList.add("active");
+      lightboxImg.src = img.src;
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    lightbox.classList.remove("active");
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target !== lightboxImg) {
+      lightbox.classList.remove("active");
+    }
+  });
+});
+</script>
+
 </body>
 </html>

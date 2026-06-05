@@ -146,6 +146,36 @@
   </div>
   
   <div class="section">
+    <h2 class="section-title">Screenshots</h2>
+    <div class="screenshots">
+      <div class="screenshot-item">
+        <div class="screenshot-placeholder">🏠 Screenshot 1: Platform Dashboard</div>
+        <p class="screenshot-caption">Main dashboard showing energy marketplace and user balance</p>
+      </div>
+      
+      <div class="screenshot-item">
+        <div class="screenshot-placeholder">⚡ Screenshot 2: Energy Trading Interface</div>
+        <p class="screenshot-caption">Buy/sell interface with real-time pricing and available energy</p>
+      </div>
+      
+      <div class="screenshot-item">
+        <div class="screenshot-placeholder">📊 Screenshot 3: Analytics Dashboard</div>
+        <p class="screenshot-caption">Energy production, consumption, and trading analytics</p>
+      </div>
+      
+      <div class="screenshot-item">
+        <div class="screenshot-placeholder">🔐 Screenshot 4: Smart Contract Transactions</div>
+        <p class="screenshot-caption">Transaction history with blockchain verification</p>
+      </div>
+      
+      <div class="screenshot-item">
+        <div class="screenshot-placeholder">🌱 Screenshot 5: Carbon Impact Tracker</div>
+        <p class="screenshot-caption">Environmental impact visualization and carbon savings</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="section">
     <h2 class="section-title">Project Overview</h2>
     <div class="section-content">
       <p><strong>Solar-Chain</strong> is a decentralized energy trading platform built on the Algorand blockchain that enables peer-to-peer solar energy transactions. The project reached <strong>Round 3 of the Algorand hackathon</strong> and was awarded <strong>$250</strong> for its innovative approach to sustainable energy distribution.</p>
@@ -192,36 +222,6 @@
     </div>
   </div>
   
-  <div class="section">
-    <h2 class="section-title">Screenshots</h2>
-    <div class="screenshots">
-      <div class="screenshot-item">
-        <div class="screenshot-placeholder">🏠 Screenshot 1: Platform Dashboard</div>
-        <p class="screenshot-caption">Main dashboard showing energy marketplace and user balance</p>
-      </div>
-      
-      <div class="screenshot-item">
-        <div class="screenshot-placeholder">⚡ Screenshot 2: Energy Trading Interface</div>
-        <p class="screenshot-caption">Buy/sell interface with real-time pricing and available energy</p>
-      </div>
-      
-      <div class="screenshot-item">
-        <div class="screenshot-placeholder">📊 Screenshot 3: Analytics Dashboard</div>
-        <p class="screenshot-caption">Energy production, consumption, and trading analytics</p>
-      </div>
-      
-      <div class="screenshot-item">
-        <div class="screenshot-placeholder">🔐 Screenshot 4: Smart Contract Transactions</div>
-        <p class="screenshot-caption">Transaction history with blockchain verification</p>
-      </div>
-      
-      <div class="screenshot-item">
-        <div class="screenshot-placeholder">🌱 Screenshot 5: Carbon Impact Tracker</div>
-        <p class="screenshot-caption">Environmental impact visualization and carbon savings</p>
-      </div>
-    </div>
-  </div>
-  
   <div class="cta-section">
     <a href="https://github.com/SagarAgarwal2" target="_blank" class="btn btn-primary">View Code on GitHub →</a>
   </div>
@@ -243,5 +243,82 @@
     localStorage.setItem('sa-theme', next);
   });
 </script>
+
+<style>
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  align-items: center;
+  justify-content: center;
+}
+.lightbox.active {
+  display: flex;
+}
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  animation: zoomIn 0.3s ease;
+}
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.lightbox-close:hover {
+  color: #ccc;
+}
+@keyframes zoomIn {
+  from {transform: scale(0.9); opacity: 0;}
+  to {transform: scale(1); opacity: 1;}
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const lightbox = document.createElement("div");
+  lightbox.id = "lightbox";
+  lightbox.className = "lightbox";
+  lightbox.innerHTML = `
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+  `;
+  document.body.appendChild(lightbox);
+
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.querySelector(".lightbox-close");
+
+  document.querySelectorAll(".screenshot-item img").forEach(img => {
+    img.style.cursor = "zoom-in";
+    img.addEventListener("click", () => {
+      lightbox.classList.add("active");
+      lightboxImg.src = img.src;
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    lightbox.classList.remove("active");
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target !== lightboxImg) {
+      lightbox.classList.remove("active");
+    }
+  });
+});
+</script>
+
 </body>
 </html>
