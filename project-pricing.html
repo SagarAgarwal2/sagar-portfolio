@@ -272,18 +272,33 @@
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.5);
   animation: zoomIn 0.3s ease;
+  user-select: none;
 }
-.lightbox-close {
+.lightbox-close, .lightbox-prev, .lightbox-next {
   position: absolute;
-  top: 20px;
-  right: 30px;
   color: white;
   font-size: 40px;
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
+  user-select: none;
+  z-index: 10000;
 }
-.lightbox-close:hover {
+.lightbox-close {
+  top: 20px;
+  right: 30px;
+}
+.lightbox-prev {
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.lightbox-next {
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover {
   color: #ccc;
 }
 @keyframes zoomIn {
@@ -299,29 +314,59 @@ document.addEventListener("DOMContentLoaded", () => {
   lightbox.className = "lightbox";
   lightbox.innerHTML = `
     <span class="lightbox-close">&times;</span>
+    <span class="lightbox-prev">&#10094;</span>
     <img class="lightbox-content" id="lightbox-img">
+    <span class="lightbox-next">&#10095;</span>
   `;
   document.body.appendChild(lightbox);
 
   const lightboxImg = document.getElementById("lightbox-img");
   const closeBtn = document.querySelector(".lightbox-close");
+  const prevBtn = document.querySelector(".lightbox-prev");
+  const nextBtn = document.querySelector(".lightbox-next");
 
-  document.querySelectorAll(".screenshot-item img").forEach(img => {
+  const images = Array.from(document.querySelectorAll(".screenshot-item img"));
+  let currentIndex = 0;
+
+  const showImage = (index) => {
+    if (images.length === 0) return;
+    if (index < 0) index = images.length - 1;
+    if (index >= images.length) index = 0;
+    currentIndex = index;
+    lightboxImg.src = images[currentIndex].src;
+  };
+
+  images.forEach((img, index) => {
     img.style.cursor = "zoom-in";
     img.addEventListener("click", () => {
       lightbox.classList.add("active");
-      lightboxImg.src = img.src;
+      showImage(index);
     });
   });
 
-  closeBtn.addEventListener("click", () => {
-    lightbox.classList.remove("active");
+  closeBtn.addEventListener("click", () => lightbox.classList.remove("active"));
+  
+  prevBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    showImage(currentIndex - 1);
+  });
+
+  nextBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    showImage(currentIndex + 1);
   });
 
   lightbox.addEventListener("click", (e) => {
-    if (e.target !== lightboxImg) {
+    if (e.target !== lightboxImg && e.target !== prevBtn && e.target !== nextBtn) {
       lightbox.classList.remove("active");
     }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("active")) return;
+    if (e.key === "Escape") lightbox.classList.remove("active");
+    if (e.key === "ArrowLeft") showImage(currentIndex - 1);
+    if (e.key === "ArrowRight") showImage(currentIndex + 1);
   });
 });
 </script>
