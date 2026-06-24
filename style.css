@@ -1,50 +1,6 @@
-/* Custom Cursor */
-body {
-  cursor: none;
-}
-.custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 12px;
-  height: 12px;
-  background: var(--accent, #1d4ed8);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease;
-  mix-blend-mode: difference;
-}
-.custom-cursor.hovering {
-  width: 60px;
-  height: 60px;
-  background: rgba(255, 255, 255, 1);
-  mix-blend-mode: difference;
-}
-.custom-cursor::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #000;
-  font-size: 11px;
-  font-family: 'Fira Code', monospace;
-  font-weight: bold;
-  letter-spacing: 0.1em;
-  opacity: 0;
-  transition: opacity 0.2s;
-  pointer-events: none;
-}
-.custom-cursor.hovering::after {
-  opacity: 1;
-}
 
-/* Ensure interactive elements don't show default cursor */
-a, button, .project-card, .btn, .theme-toggle, .lightbox-close, .screenshot-item img {
-  cursor: none !important;
-}
+
+
 
 /* Staggered Reveal Letters */
 .char-wrap {
@@ -128,15 +84,7 @@ a, button, .project-card, .btn, .theme-toggle, .lightbox-close, .screenshot-item
   transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Disable custom cursor on touch devices (mobile/tablets) */
-@media (hover: none) and (pointer: coarse), (max-width: 768px) {
-  .custom-cursor {
-    display: none !important;
-  }
-  body, a, button, .project-card, .btn, .theme-toggle, .lightbox-close, .screenshot-item img {
-    cursor: auto !important;
-  }
-}
+
 
 /* EXPERIENCE */
 .exp-grid {
