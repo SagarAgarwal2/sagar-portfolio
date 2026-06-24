@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!-- SEO, AEO & GEO Optimization Meta Tags -->
+<title>Sanchaar Setu | Sagar Agarwal</title>
+<meta name="description" content="Production-grade e-governance middleware enabling secure, tamper-evident communication between government departments." />
+<meta name="author" content="Sagar Agarwal" />
+<meta name="robots" content="index, follow" />
+
+<!-- Open Graph / Social -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Sanchaar Setu | Sagar Agarwal" />
+<meta property="og:description" content="Production-grade e-governance middleware enabling secure, tamper-evident communication between government departments." />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Sanchaar Setu | Sagar Agarwal" />
+<meta name="twitter:description" content="Production-grade e-governance middleware enabling secure, tamper-evident communication between government departments." />
+
+<!-- Schema.org / JSON-LD for Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Sanchaar Setu",
+  "operatingSystem": "Web",
+  "applicationCategory": "UtilityApplication",
+  "description": "Production-grade e-governance middleware enabling secure, tamper-evident communication between government departments.",
+  "author": {
+    "@type": "Person",
+    "name": "Sagar Agarwal"
+  }
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root{--bg:#f6f5f1;--bg2:#eeece6;--surface:#fafaf8;--border:#dddad2;--accent:#1d4ed8;--accent2:#b91c1c;--accent3:#15803d;--text:#18181b;--muted:#71717a;--card:#fff;--shadow:rgba(0,0,0,.06)}
+  [data-theme="dark"]{--bg:#0e0e0c;--bg2:#141410;--surface:#1a1a16;--border:#2c2c26;--accent:#6b9cfa;--accent2:#f87171;--accent3:#4ade80;--text:#f0ede4;--muted:#888278;--card:#161614;--shadow:rgba(0,0,0,.5)}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;transition:background .4s,color .4s}
+  .theme-toggle{position:fixed;top:1.3rem;right:4rem;z-index:200;background:var(--bg2);border:1px solid var(--border);border-radius:100px;width:56px;height:28px;cursor:pointer;display:flex;align-items:center;padding:3px;transition:background .3s,border .3s;box-shadow:0 1px 4px var(--shadow)}
+  .toggle-knob{width:22px;height:22px;border-radius:50%;background:var(--card);box-shadow:0 1px 4px rgba(0,0,0,.2);transition:transform .3s;display:flex;align-items:center;justify-content:center;font-size:.72rem}
+  [data-theme="dark"] .toggle-knob{transform:translateX(28px)}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 4rem;backdrop-filter:blur(18px);background:rgba(246,245,241,.85);border-bottom:1px solid var(--border);transition:background .4s,border .4s}
+  [data-theme="dark"] nav{background:rgba(14,14,12,.85)}
+  .nav-back{display:inline-flex;align-items:center;gap:.5rem;color:var(--muted);text-decoration:none;font-size:.82rem;font-weight:500;transition:all .2s}.nav-back:hover{color:var(--text);gap:.7rem}
+  .container{max-width:1000px;margin:0 auto;padding:8rem 2rem 4rem}
+  .project-header{margin-bottom:4rem}
+  .project-category{font-family:'Fira Code',monospace;font-size:.72rem;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem}
+  .project-title{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2.5rem,5vw,4rem);letter-spacing:-.025em;line-height:1.1;margin-bottom:1.5rem}
+  .project-subtitle{color:var(--muted);font-size:1.1rem;line-height:1.8;max-width:800px;margin-bottom:2rem}
+  .project-meta{display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:2rem}
+  .metric{font-size:.72rem;font-weight:600;padding:.4rem 1rem;border-radius:100px}
+  .metric-blue{background:rgba(29,78,216,.08);color:#1d4ed8;border:1px solid rgba(29,78,216,.2)}
+  .metric-green{background:rgba(21,128,61,.08);color:#15803d;border:1px solid rgba(21,128,61,.2)}
+  .metric-red{background:rgba(185,28,28,.08);color:#b91c1c;border:1px solid rgba(185,28,28,.2)}
+  [data-theme="dark"] .metric-blue{background:rgba(107,156,250,.1);color:#6b9cfa;border-color:rgba(107,156,250,.2)}
+  [data-theme="dark"] .metric-green{background:rgba(74,222,128,.1);color:#4ade80;border-color:rgba(74,222,128,.2)}
+  [data-theme="dark"] .metric-red{background:rgba(248,113,113,.1);color:#f87171;border-color:rgba(248,113,113,.2)}
+  .tech-stack{display:flex;flex-wrap:wrap;gap:.5rem}
+  .tag{font-size:.75rem;font-family:'Fira Code',monospace;padding:.3rem .8rem;border-radius:4px;background:var(--bg2);border:1px solid var(--border);color:var(--muted)}
+  .section{margin-bottom:4rem}
+  .section-title{font-family:'Playfair Display',serif;font-weight:700;font-size:1.8rem;margin-bottom:1.5rem}
+  .section-content p{color:var(--muted);line-height:1.9;font-size:.95rem;margin-bottom:1.2rem}
+  .section-content strong{color:var(--text);font-weight:600}
+  .section-content ul{margin-left:1.5rem;color:var(--muted);line-height:1.9}
+  .section-content ul li{margin-bottom:.8rem}
+  .cta-section{text-align:center;padding:3rem 2rem;background:var(--bg2);border-radius:12px;margin-top:4rem}
+  .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 2rem;border-radius:6px;font-size:.88rem;font-weight:600;text-decoration:none;transition:all .25s}
+  .btn-primary{background:var(--text);color:var(--bg);box-shadow:0 4px 20px var(--shadow)}.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px var(--shadow)}
+  .screenshots-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1.5rem}
+  .screenshot-item{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;box-shadow:0 2px 12px var(--shadow);transition:all .3s}
+  .screenshot-item:hover{transform:translateY(-4px);box-shadow:0 12px 36px var(--shadow);border-color:var(--accent)}
+  .screenshot-item img{width:100%;display:block;transition:transform .4s}
+  .screenshot-item:hover img{transform:scale(1.03)}
+  .screenshot-caption{padding:.75rem 1rem;font-size:.78rem;color:var(--muted);line-height:1.5;border-top:1px solid var(--border)}
+  @media(max-width:900px){.screenshots-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:768px){nav{padding:1rem 1.5rem}.theme-toggle{right:1.5rem}.container{padding:6rem 1.5rem 3rem}.screenshots-grid{grid-template-columns:1fr}}
+</style>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/jpeg" href="assests/favicon.jpg" />
+</head>
+<body>
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><div class="toggle-knob" id="toggleKnob">☀️</div></button>
+<nav><a href="index.html" class="nav-back">← Back to Portfolio</a></nav>
+
+<div class="container">
+  <div class="project-header">
+    <div class="project-category">00 / FinTech · AI</div>
+    <h1 class="project-title">GraphSentinel</h1>
+    <p class="project-subtitle">AI-Powered Fund Flow Tracking & Fraud Detection platform addressing Union Bank PS3. Replaces legacy rule-based AML systems with a real-time, event-driven transaction graph utilizing Temporal GNNs and Explainable AI (SHAP).</p>
+    <div class="project-meta">
+      <span class="metric metric-green">94% FP Reduction</span>
+      <span class="metric metric-blue">0.89 F1-Score</span>
+      <span class="metric metric-red">Sub-second Latency</span>
+    </div>
+    <div class="tech-stack">
+      <span class="tag">Neo4j</span><span class="tag">PyTorch</span><span class="tag">Apache Kafka</span><span class="tag">React.js</span><span class="tag">FastAPI</span>
+    </div>
+  </div>
+
+  
+  <div class="section">
+    <h2 class="section-title">Screenshots</h2>
+    <div class="section-content">
+      <p>A walkthrough of the GraphSentinel Investigator Workbench and Real-time Temporal Graph Visualizations.</p>
+    </div>
+    <div class="screenshots-grid">
+      <div class="screenshot-item">
+        <img src="assests/gs-1.png" alt="GraphSentinel Overview" loading="lazy">
+        <div class="screenshot-caption">Investigator Workbench — High-level metrics and active anomaly alerts</div>
+      </div>
+      <div class="screenshot-item">
+        <img src="assests/gs-2.png" alt="Temporal Graph" loading="lazy">
+        <div class="screenshot-caption">Temporal Graph Visualization — D3.js force-directed interactive fund-flow graph</div>
+      </div>
+      <div class="screenshot-item">
+        <img src="assests/gs-3.png" alt="Multi-hop Detection" loading="lazy">
+        <div class="screenshot-caption">Multi-hop Detection — Identifying complex layering chains across 3+ accounts</div>
+      </div>
+      <div class="screenshot-item">
+        <img src="assests/gs-4.png" alt="SHAP Explainability" loading="lazy">
+        <div class="screenshot-caption">SHAP Explainability — Causal narratives explaining the model's flagging criteria</div>
+      </div>
+      <div class="screenshot-item">
+        <img src="assests/gs-5.png" alt="Transaction Simulator" loading="lazy">
+        <div class="screenshot-caption">Transaction Simulator — Injecting PS3 threat patterns like circular round-trips</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Problem Statement</h2>
+    <div class="section-content">
+      <p>This project addresses <strong>Union Bank PS3: Tracking of Funds within Bank for Fraud Detection</strong>.</p>
+      <p>GraphSentinel replaces legacy rule-based AML (Anti-Money Laundering) systems with a real-time, event-driven transaction graph. Utilizing <strong>Temporal Graph Neural Networks (GNN)</strong> and <strong>Explainable AI (SHAP)</strong>, it detects complex, multi-hop money laundering patterns natively at scale, offering a 94% improvement in False Positive reduction.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Production-Level Tech Stack</h2>
+    <div class="section-content">
+      <ul>
+        <li><strong>Data Ingestion & Streaming:</strong> Apache Kafka (Event Queues) & Apache Flink (Stateful Stream Processing)</li>
+        <li><strong>Graph Database:</strong> Neo4j (Cypher queries for deep multi-hop traversal)</li>
+        <li><strong>Machine Learning (AI Engine):</strong> PyTorch Geometric (EvolveGCN for Temporal Graphs), TensorFlow (LSTM Autoencoders)</li>
+        <li><strong>Explainable AI & Federated Layer:</strong> SHAP (Causal Narratives), PySyft (Privacy-Preserving Federated Learning)</li>
+        <li><strong>Backend Services:</strong> FastAPI (Python), Node.js, Redis (Idempotency & Caching), PostgreSQL</li>
+        <li><strong>Frontend UI:</strong> React.js, Tailwind CSS, D3.js (Force-directed interactive fund-flow graph)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Model Performance (Synthetic Test Set)</h2>
+    <div class="section-content">
+      <p>All data used in this prototype is 100% synthetic, generated to closely mirror Indian banking behaviour and injecting core PS3 threat patterns like sub-threshold structuring and dormant account reactivation.</p>
+      <ul>
+        <li><strong>Temporal GNN (Fraud Classification):</strong> Precision: 0.91 | Recall: 0.88 | F1-Score: 0.89</li>
+        <li><strong>LSTM Autoencoder (Behavioural Deviation):</strong> Accuracy: 93% on anomalous spikes</li>
+        <li><strong>False Positive Reduction:</strong> 94% improvement over standard threshold-based AML rules.</li>
+      </ul>
+    </div>
+  </div>
+<div class="cta-section">
+    <a href="https://github.com/SagarAgarwal2/gs" target="_blank" class="btn btn-primary">View Code on GitHub →</a>
+  </div>
+</div>
+
+<script>
+  const toggle=document.getElementById('themeToggle'),knob=document.getElementById('toggleKnob'),html=document.documentElement;
+  const saved=localStorage.getItem('sa-theme')||'light';html.setAttribute('data-theme',saved);knob.textContent=saved==='dark'?'🌙':'☀️';
+  toggle.addEventListener('click',()=>{const next=html.getAttribute('data-theme')==='dark'?'light':'dark';html.setAttribute('data-theme',next);knob.textContent=next==='dark'?'🌙':'☀️';localStorage.setItem('sa-theme',next);});
+</script>
+
+<style>
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  align-items: center;
+  justify-content: center;
+}
+.lightbox.active {
+  display: flex;
+}
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  animation: zoomIn 0.3s ease;
+}
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.lightbox-close:hover {
+  color: #ccc;
+}
+@keyframes zoomIn {
+  from {transform: scale(0.9); opacity: 0;}
+  to {transform: scale(1); opacity: 1;}
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const lightbox = document.createElement("div");
+  lightbox.id = "lightbox";
+  lightbox.className = "lightbox";
+  lightbox.innerHTML = `
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+  `;
+  document.body.appendChild(lightbox);
+
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.querySelector(".lightbox-close");
+
+  document.querySelectorAll(".screenshot-item img").forEach(img => {
+    img.style.cursor = "zoom-in";
+    img.addEventListener("click", () => {
+      lightbox.classList.add("active");
+      lightboxImg.src = img.src;
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    lightbox.classList.remove("active");
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target !== lightboxImg) {
+      lightbox.classList.remove("active");
+    }
+  });
+});
+</script>
+
+  <script src="main.js"></script>
+</body>
+</html>
