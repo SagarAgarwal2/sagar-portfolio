@@ -150,3 +150,43 @@
 .exp-desc li {
   margin-bottom: 0.5rem;
 }
+
+/* SKILLS MARQUEE */
+.skills-marquee-container {
+  width: 100%;
+  overflow: hidden;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 0;
+  display: flex;
+  position: relative;
+}
+
+.skills-marquee {
+  display: flex;
+  animation: marquee 40s linear infinite;
+  white-space: nowrap;
+}
+
+.skills-marquee span {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+}
+
+.skills-marquee span::after {
+  content: "✦";
+  color: var(--accent);
+  margin: 0 3rem;
+  font-size: 0.9rem;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
