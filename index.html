@@ -931,32 +931,37 @@
   <section class="hero" id="home">
     <div class="blob blob1"></div>
     <div class="blob blob2"></div>
-    <div class="hero-content">
-      <div class="hero-eyebrow">Pre-final year · BIT Mesra · CS 2027</div>
-      <h1 class="hero-name">Sagar<br><span class="line2">Agarwal</span></h1>
-      <p class="hero-desc">Building AI systems, safety tech, and blockchain platforms. Turning ambitious ideas into
-        working products.</p>
-      <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary">View Projects →</a>
-        <a href="mailto:tnbtsper30@gmail.com" class="btn btn-outline">Get in Touch</a>
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-eyebrow">Pre-final year · BIT Mesra · CS 2027</div>
+        <h1 class="hero-name">Sagar<br><span class="line2">Agarwal</span></h1>
+        <p class="hero-desc">Building AI systems, safety tech, and blockchain platforms. Turning ambitious ideas into
+          working products.</p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">View Projects →</a>
+          <a href="mailto:tnbtsper30@gmail.com" class="btn btn-outline">Get in Touch</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num">8.56<sup>*</sup></div>
+            <div class="stat-label">CGPA at BIT Mesra</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">700<sup>+</sup></div>
+            <div class="stat-label">LeetCode Problems</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">10</div>
+            <div class="stat-label">Live Projects</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">$1300</div>
+            <div class="stat-label">Hackathon Prize</div>
+          </div>
+        </div>
       </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <div class="stat-num">8.56<sup>*</sup></div>
-          <div class="stat-label">CGPA at BIT Mesra</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">700<sup>+</sup></div>
-          <div class="stat-label">LeetCode Problems</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">9</div>
-          <div class="stat-label">Live Projects</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">$1300</div>
-          <div class="stat-label">Hackathon Prize</div>
-        </div>
+      <div class="hero-visual">
+        <img src="assests/favicon.jpg" alt="Sagar Agarwal" class="hero-image">
       </div>
     </div>
   </section>
@@ -1045,186 +1050,202 @@
       <h2 class="section-title">Projects that ship</h2>
     </div>
     <div class="projects-grid">
-      <div class="project-card reveal">
-        <div class="project-num">01 / E-Governance · Middleware</div>
-        <div class="project-icon">🚦</div>
-        <div class="project-title">Sanchaar Setu</div>
-        <div class="project-desc">E-governance middleware enabling secure, tamper-evident communication between
-          government departments. Features Kafka-based async messaging, hash-chained audit logs, PII scrubbing, RBAC,
-          and rate limiting.</div>
-        <div class="project-metrics">
-          <span class="metric metric-green">Production-grade</span>
-          <span class="metric metric-blue">Tamper-evident logs</span>
-          <span class="metric metric-red">PII protection</span>
-        </div>
-        <div class="project-tags"><span class="tag">Python</span><span class="tag">Kafka</span><span
-            class="tag">Docker</span><span class="tag">Redis</span><span class="tag">FastAPI</span><span
-            class="tag">PostgreSQL</span></div>
-        <div class="project-actions">
-          <a href="project-sanchaarsetu.html" class="project-btn">View Detailed →</a>
-          <a href="https://github.com/SagarAgarwal2" target="_blank" class="project-link">View on GitHub →</a>
-        </div>
-      </div>
-            <div class="project-card reveal">
-        <div class="project-num">02 / Mobile · Safety</div>
-        <div class="project-icon">🛡️</div>
-        <div class="project-title">SaviHer — Safety App</div>
-        <div class="project-desc">Founder &amp; developer of a women's safety app with SOS alerts capturing real-time
-          images and notifying emergency contacts in 2.5 seconds. Incubated at Bhamasha Techno Hub.</div>
-        <div class="project-metrics">
-          <span class="metric metric-red">2.5s SOS response</span>
-          <span class="metric metric-green">70% faster help</span>
-          <span class="metric metric-blue">Incubated</span>
-        </div>
-        <div class="project-tags"><span class="tag">Flutter</span><span class="tag">Dart</span><span
-            class="tag">Firebase</span><span class="tag">GCP</span><span class="tag">Twilio</span></div>
-        <div class="project-actions">
-          <a href="project-saviher.html" class="project-btn">View Detailed →</a>
-          <a href="https://github.com/SagarAgarwal2" target="_blank" class="project-link">View on GitHub →</a>
+      <div class="featured-card reveal">
+        <img src="assests/ss-sanchaarsetu-1.png" alt="Sanchaar Setu" class="project-thumbnail">
+        <div class="featured-overlay"></div>
+        <div class="featured-content">
+          <div class="project-num">01 · E-Governance · Middleware</div>
+          <div class="project-title">Sanchaar Setu</div>
+          <div class="featured-details">
+            <div class="project-desc">E-governance middleware enabling secure, tamper-evident communication between government departments. Features Kafka-based async messaging, hash-chained audit logs, PII scrubbing, RBAC, and rate limiting.</div>
+            <div class="project-metrics">
+              <span class="metric metric-green">Production-grade</span>
+              <span class="metric metric-blue">Tamper-evident logs</span>
+              <span class="metric metric-red">PII protection</span>
+            </div>
+
+            <div class="project-actions" style="margin-bottom: 0;">
+              <a href="project-sanchaarsetu.html" class="project-btn">View Detailed →</a>
+              <a href="#repo-link" target="_blank" class="project-link">View on GitHub →</a>
+            </div>
+          </div>
         </div>
       </div>
-            <div class="project-card reveal">
-        <div class="project-num">03 / FinTech · AI</div>
-        <div class="project-icon">🕸️</div>
-        <div class="project-title">GraphSentinel</div>
-        <div class="project-desc">AI-Powered Fund Flow Tracking & Fraud Detection utilizing Temporal GNNs to detect multi-hop money laundering.</div>
-        <div class="project-metrics">
-          <span class="metric metric-green">94% FP Reduction</span>
-          <span class="metric metric-blue">Neo4j</span>
+      <div class="featured-card reveal">
+        <img src="assests/WhatsApp Image 2025-07-11 at 00.13.12_502c36a2.jpg" alt="SaviHer" class="project-thumbnail">
+        <div class="featured-overlay"></div>
+        <div class="featured-content">
+          <div class="project-num">02 · Mobile · Safety</div>
+          <div class="project-title">SaviHer — Safety App</div>
+          <div class="featured-details">
+            <div class="project-desc">Founder &amp; developer of a women's safety app with SOS alerts capturing real-time images and notifying emergency contacts in 2.5 seconds. Incubated at Bhamasha Techno Hub.</div>
+            <div class="project-metrics">
+              <span class="metric metric-red">2.5s SOS response</span>
+              <span class="metric metric-green">70% faster help</span>
+              <span class="metric metric-blue">Incubated</span>
+            </div>
+
+            <div class="project-actions" style="margin-bottom: 0;">
+              <a href="project-saviher.html" class="project-btn">View Detailed →</a>
+              <a href="#repo-link" target="_blank" class="project-link">View on GitHub →</a>
+            </div>
+          </div>
         </div>
-        <div class="project-tags"><span class="tag">PyTorch</span><span class="tag">Kafka</span><span class="tag">React</span></div>
-        <div class="project-actions">
-          <a href="project-graphsentinel.html" class="project-btn">View Detailed →</a>
-          <a href="https://github.com/SagarAgarwal2/gs" target="_blank" class="project-link">View on GitHub →</a>
+      </div>
+      <div class="featured-card reveal">
+        <img src="assests/gs-1.png" alt="GraphSentinel" class="project-thumbnail">
+        <div class="featured-overlay"></div>
+        <div class="featured-content">
+          <div class="project-num">03 · FinTech · AI</div>
+          <div class="project-title">GraphSentinel</div>
+          <div class="featured-details">
+            <div class="project-desc">AI-Powered Fund Flow Tracking & Fraud Detection utilizing Temporal GNNs to detect multi-hop money laundering.</div>
+            <div class="project-metrics">
+              <span class="metric metric-green">94% FP Reduction</span>
+              <span class="metric metric-blue">Neo4j</span>
+            </div>
+            <div class="project-actions" style="margin-bottom: 0;">
+              <a href="project-graphsentinel.html" class="project-btn">View Detailed →</a>
+              <a href="https://github.com/SagarAgarwal2/gs" target="_blank" class="project-link">View on GitHub →</a>
+            </div>
+          </div>
         </div>
       </div>
 
-            <div class="project-card reveal">
-        <div class="project-num">04 / Blockchain · Energy</div>
-        <div class="project-icon">⚡</div>
-        <div class="project-title">Solar-Chain</div>
-        <div class="project-desc">Peer-to-peer solar energy trading on Algorand. Direct energy trading reduces coal
-          dependency. Reached Round 3 of the Algorand hackathon and won $250.</div>
-        <div class="project-metrics">
-          <span class="metric metric-gold">$250 prize</span>
-          <span class="metric metric-green">40–50% less coal</span>
-          <span class="metric metric-blue">Hackathon Round 3</span>
-        </div>
-        <div class="project-tags"><span class="tag">Solidity</span><span class="tag">Python</span><span
-            class="tag">Algorand</span><span class="tag">Smart Contracts</span></div>
-        <div class="project-actions">
-          <a href="project-solarchain.html" class="project-btn">View Detailed →</a>
-          <a href="https://github.com/SagarAgarwal2" target="_blank" class="project-link">View on GitHub →</a>
-        </div>
-      </div>
-            <div class="project-card reveal">
-        <div class="project-num">05 / ML · NLP</div>
-        <div class="project-icon">🧠</div>
-        <div class="project-title">Smart Product Pricing</div>
-        <div class="project-desc">ML ensemble predicting product prices from text, numeric, and image features. Hybrid
-          model using Random Forest, Gradient Boosting, and MLP with advanced NLP feature engineering.</div>
-        <div class="project-metrics">
-          <span class="metric metric-blue">Top 2000 / 7000+ teams</span>
-          <span class="metric metric-green">54% SMAPE</span>
-        </div>
-        <div class="project-tags"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span
-            class="tag">TF-IDF</span><span class="tag">Gradient Boosting</span><span class="tag">MLP</span></div>
-        <div class="project-actions">
-          <a href="project-pricing.html" class="project-btn">View Detailed →</a>
-          <a href="https://github.com/SagarAgarwal2" target="_blank" class="project-link">View on GitHub →</a>
+      <div class="featured-card reveal">
+        <img src="assests/Screenshot 2026-03-01 080153.png" alt="Solar-Chain" class="project-thumbnail">
+        <div class="featured-overlay"></div>
+        <div class="featured-content">
+          <div class="project-num">04 · Blockchain · Energy</div>
+          <div class="project-title">Solar-Chain</div>
+          <div class="featured-details">
+            <div class="project-desc">Peer-to-peer solar energy trading on Algorand. Direct energy trading reduces coal dependency. Reached Round 3 of the Algorand hackathon and won $250.</div>
+            <div class="project-metrics">
+              <span class="metric metric-gold">$250 prize</span>
+              <span class="metric metric-green">40–50% less coal</span>
+              <span class="metric metric-blue">Hackathon Round 3</span>
+            </div>
+            <div class="project-actions" style="margin-bottom: 0;">
+              <a href="project-solarchain.html" class="project-btn">View Detailed →</a>
+              <a href="#repo-link" target="_blank" class="project-link">View on GitHub →</a>
+            </div>
+          </div>
         </div>
       </div>
-            <div class="project-card reveal">
-        <div class="project-num">06 / AI · Automation</div>
-        <div class="project-icon">🤖</div>
-        <div class="project-title">Agentic RFP Automation</div>
-        <div class="project-desc">Multi-agent AI platform for the paint industry automating RFP analysis, vendor
-          selection, and pricing. RAG-based semantic matching with real-time decision intelligence.</div>
-        <div class="project-metrics">
-          <span class="metric metric-green">99% faster (3h → 7s)</span>
-          <span class="metric metric-blue">90% match accuracy</span>
-        </div>
-        <div class="project-tags"><span class="tag">React</span><span class="tag">RAG</span><span
-            class="tag">NLP</span><span class="tag">Firebase</span><span class="tag">PDF.js</span></div>
-        <div class="project-actions">
-          <a href="project-rfp.html" class="project-btn">View Detailed →</a>
-          <a href="https://github.com/SagarAgarwal2" target="_blank" class="project-link">View on GitHub →</a>
-        </div>
-      </div>
-            <div class="project-card reveal">
-        <div class="project-num">07 / Full-Stack · Real-Time</div>
-        <div class="project-icon">🔨</div>
-        <div class="project-title">Battle of Bytes — Live Auction</div>
-        <div class="project-desc">React-based live auction platform with real-time bidding dashboard, team polling, and
-          interactive UI. Firebase Firestore powers real-time updates and bid tracking with countdown timers and sound
-          effects.</div>
-        <div class="project-metrics">
-          <span class="metric metric-blue">Real-time bidding</span>
-          <span class="metric metric-green">Interactive UI</span>
-        </div>
-        <div class="project-tags"><span class="tag">React</span><span class="tag">Firebase Firestore</span><span
-            class="tag">Framer Motion</span><span class="tag">Web Audio API</span><span class="tag">CSS3</span></div>
-        <div class="project-actions">
-          <a href="project-auction.html" class="project-btn">View Detailed →</a>
-          <a href="https://github.com/SagarAgarwal2" target="_blank" class="project-link">View on GitHub →</a>
+      <div class="featured-card reveal">
+        <img src="assests/Screenshot 2026-03-01 080206.png" alt="Smart Product Pricing" class="project-thumbnail">
+        <div class="featured-overlay"></div>
+        <div class="featured-content">
+          <div class="project-num">05 · ML · NLP</div>
+          <div class="project-title">Smart Product Pricing</div>
+          <div class="featured-details">
+            <div class="project-desc">ML ensemble predicting product prices from text, numeric, and image features. Hybrid model using Random Forest, Gradient Boosting, and MLP with advanced NLP feature engineering.</div>
+            <div class="project-metrics">
+              <span class="metric metric-blue">Top 2000 / 7000+ teams</span>
+              <span class="metric metric-green">54% SMAPE</span>
+            </div>
+            <div class="project-actions" style="margin-bottom: 0;">
+              <a href="project-pricing.html" class="project-btn">View Detailed →</a>
+              <a href="#repo-link" target="_blank" class="project-link">View on GitHub →</a>
+            </div>
+          </div>
         </div>
       </div>
-            <div class="project-card reveal">
-        <div class="project-num">08 / AI · Simulation</div>
-        <div class="project-icon">🧬</div>
-        <div class="project-title">Digital Twin Market Engine — FMCG Simulator</div>
-        <div class="project-desc">Market simulation platform modeling FMCG launches. TensorFlow.js powers neural
-          networks, K-Means clustering, and regression to predict purchase probability and pricing for 25,000 synthetic
-          personas.</div>
-        <div class="project-metrics">
-          <span class="metric metric-blue">25k personas</span>
-          <span class="metric metric-green">ML-powered</span>
-        </div>
-        <div class="project-tags"><span class="tag">React</span><span class="tag">TensorFlow.js</span><span
-            class="tag">Chart.js</span><span class="tag">K-Means</span><span class="tag">Neural Networks</span></div>
-        <div class="project-actions">
-          <a href="project-digitaltwin.html" class="project-btn">View Detailed →</a>
-          <a href="https://github.com/SagarAgarwal2" target="_blank" class="project-link">View on GitHub →</a>
-        </div>
-      </div>
-            <div class="project-card reveal">
-        <div class="project-num">09 / Blockchain · Logistics</div>
-        <div class="project-icon">📦</div>
-        <div class="project-title">Supply Chain Tracker</div>
-        <div class="project-desc">Blockchain-powered supply chain transparency platform with end-to-end product
-          tracking, smart contract verification, and real-time analytics. Immutable ledger ensures provenance and
-          anti-counterfeiting across the logistics pipeline.</div>
-        <div class="project-metrics">
-          <span class="metric metric-blue">Immutable ledger</span>
-          <span class="metric metric-green">Real-time tracking</span>
-          <span class="metric metric-gold">Smart contracts</span>
-        </div>
-        <div class="project-tags"><span class="tag">Solidity</span><span class="tag">React</span><span
-            class="tag">Node.js</span><span class="tag">Ethereum</span><span class="tag">IPFS</span><span
-            class="tag">Web3.js</span></div>
-        <div class="project-actions">
-          <a href="project-supplychain.html" class="project-btn">View Detailed →</a>
-          <a href="https://github.com/SagarAgarwal2" target="_blank" class="project-link">View on GitHub →</a>
+      <div class="featured-card reveal">
+        <img src="assests/Screenshot 2026-03-01 080237.png" alt="Agentic RFP Automation" class="project-thumbnail">
+        <div class="featured-overlay"></div>
+        <div class="featured-content">
+          <div class="project-num">06 · AI · Automation</div>
+          <div class="project-title">Agentic RFP Automation</div>
+          <div class="featured-details">
+            <div class="project-desc">Multi-agent AI platform for the paint industry automating RFP analysis, vendor selection, and pricing. RAG-based semantic matching with real-time decision intelligence.</div>
+            <div class="project-metrics">
+              <span class="metric metric-green">99% faster (3h → 7s)</span>
+              <span class="metric metric-blue">90% match accuracy</span>
+            </div>
+            <div class="project-actions" style="margin-bottom: 0;">
+              <a href="project-rfp.html" class="project-btn">View Detailed →</a>
+              <a href="#repo-link" target="_blank" class="project-link">View on GitHub →</a>
+            </div>
+          </div>
         </div>
       </div>
-            <div class="project-card reveal">
-        <div class="project-num">10 / AI · FinTech</div>
-        <div class="project-icon">💰</div>
-        <div class="project-title">AI Money Mentor</div>
-        <div class="project-desc">AI-powered personal finance advisor that analyzes spending patterns, predicts budgets,
-          and delivers actionable savings recommendations. NLP-driven conversational interface makes financial planning
-          intuitive and accessible.</div>
-        <div class="project-metrics">
-          <span class="metric metric-green">Smart budgeting</span>
-          <span class="metric metric-blue">NLP-powered</span>
-          <span class="metric metric-gold">Predictive analytics</span>
+      <div class="featured-card reveal">
+        <img src="assests/Screenshot 2026-03-04 132020.png" alt="Battle of Bytes" class="project-thumbnail">
+        <div class="featured-overlay"></div>
+        <div class="featured-content">
+          <div class="project-num">07 · Full-Stack · Real-Time</div>
+          <div class="project-title">Battle of Bytes — Live Auction</div>
+          <div class="featured-details">
+            <div class="project-desc">React-based live auction platform with real-time bidding dashboard, team polling, and interactive UI. Firebase Firestore powers real-time updates and bid tracking with countdown timers and sound effects.</div>
+            <div class="project-metrics">
+              <span class="metric metric-blue">Real-time bidding</span>
+              <span class="metric metric-green">Interactive UI</span>
+            </div>
+            <div class="project-actions" style="margin-bottom: 0;">
+              <a href="project-auction.html" class="project-btn">View Detailed →</a>
+              <a href="#repo-link" target="_blank" class="project-link">View on GitHub →</a>
+            </div>
+          </div>
         </div>
-        <div class="project-tags"><span class="tag">Python</span><span class="tag">TensorFlow</span><span
-            class="tag">React</span><span class="tag">FastAPI</span><span class="tag">NLP</span><span
-            class="tag">Chart.js</span></div>
-        <div class="project-actions">
-          <a href="project-aimoneymentor.html" class="project-btn">View Detailed →</a>
-          <a href="https://github.com/SagarAgarwal2" target="_blank" class="project-link">View on GitHub →</a>
+      </div>
+      <div class="featured-card reveal">
+        <img src="assests/Screenshot 2026-03-01 080430.png" alt="Digital Twin" class="project-thumbnail">
+        <div class="featured-overlay"></div>
+        <div class="featured-content">
+          <div class="project-num">08 · AI · Simulation</div>
+          <div class="project-title">Digital Twin Market Engine — FMCG Simulator</div>
+          <div class="featured-details">
+            <div class="project-desc">Market simulation platform modeling FMCG launches. TensorFlow.js powers neural networks, K-Means clustering, and regression to predict purchase probability and pricing for 25,000 synthetic personas.</div>
+            <div class="project-metrics">
+              <span class="metric metric-blue">25k personas</span>
+              <span class="metric metric-green">ML-powered</span>
+            </div>
+            <div class="project-actions" style="margin-bottom: 0;">
+              <a href="project-digitaltwin.html" class="project-btn">View Detailed →</a>
+              <a href="#repo-link" target="_blank" class="project-link">View on GitHub →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="featured-card reveal">
+        <img src="assests/ss-supplychain-1.png" alt="Supply Chain Tracker" class="project-thumbnail">
+        <div class="featured-overlay"></div>
+        <div class="featured-content">
+          <div class="project-num">09 · Blockchain · Logistics</div>
+          <div class="project-title">Supply Chain Tracker</div>
+          <div class="featured-details">
+            <div class="project-desc">Blockchain-powered supply chain transparency platform with end-to-end product tracking, smart contract verification, and real-time analytics. Immutable ledger ensures provenance and anti-counterfeiting across the logistics pipeline.</div>
+            <div class="project-metrics">
+              <span class="metric metric-blue">Immutable ledger</span>
+              <span class="metric metric-green">Real-time tracking</span>
+              <span class="metric metric-gold">Smart contracts</span>
+            </div>
+            <div class="project-actions" style="margin-bottom: 0;">
+              <a href="project-supplychain.html" class="project-btn">View Detailed →</a>
+              <a href="#repo-link" target="_blank" class="project-link">View on GitHub →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="featured-card reveal">
+        <img src="assests/Screenshot 2026-03-01 080326.png" alt="AI Money Mentor" class="project-thumbnail">
+        <div class="featured-overlay"></div>
+        <div class="featured-content">
+          <div class="project-num">10 · AI · FinTech</div>
+          <div class="project-title">AI Money Mentor</div>
+          <div class="featured-details">
+            <div class="project-desc">AI-powered personal finance advisor that analyzes spending patterns, predicts budgets, and delivers actionable savings recommendations. NLP-driven conversational interface makes financial planning intuitive and accessible.</div>
+            <div class="project-metrics">
+              <span class="metric metric-green">Smart budgeting</span>
+              <span class="metric metric-blue">NLP-powered</span>
+              <span class="metric metric-gold">Predictive analytics</span>
+            </div>
+            <div class="project-actions" style="margin-bottom: 0;">
+              <a href="project-aimoneymentor.html" class="project-btn">View Detailed →</a>
+              <a href="#repo-link" target="_blank" class="project-link">View on GitHub →</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1239,10 +1260,11 @@
       <div class="ach-card reveal">
         <div class="ach-icon">🏆</div>
         <div>
-          <div class="ach-title">Prize Winner (₹1,00,000) – AI FOR BHARAT HACKATHON by PAN IIT</div>
+          <div class="ach-title">AI for Bharat Hackathon Winner — ₹1,00,000, PAN IIT</div>
           <div class="ach-desc">Recognized as winners for Sanchaar Setu; evaluated by Joint Directors, Dept. of Industry
             &amp; Commerce, Govt. of Karnataka, with EY as EODB knowledge partner.</div>
           <div class="ach-date">May 2026</div>
+          <div class="project-tags" style="margin-top: 1rem;"><span class="tag" style="color:var(--accent2); background:rgba(185,28,28,0.1)">₹1,00,000 Prize</span><span class="tag">Winner</span></div>
         </div>
       </div>
       <div class="ach-card reveal">
@@ -1251,6 +1273,7 @@
           <div class="ach-title">Won 250$ – Algorand Hackathon Finalist</div>
           <div class="ach-desc">Built a scalable P2P energy trading platform. Awarded $250 for reaching Round 3.</div>
           <div class="ach-date">Dec 2024</div>
+          <div class="project-tags" style="margin-top: 1rem;"><span class="tag" style="color:var(--accent3); background:rgba(21,128,61,0.1)">$250 Prize</span><span class="tag">Finalist</span></div>
         </div>
       </div>
       <div class="ach-card reveal">
@@ -1259,6 +1282,7 @@
           <div class="ach-title">Smart India Hackathon — Top 10</div>
           <div class="ach-desc">Selected among top 10 campus teams for national-level competition.</div>
           <div class="ach-date">Sept 2024</div>
+          <div class="project-tags" style="margin-top: 1rem;"><span class="tag">Top 10</span></div>
         </div>
       </div>
       <div class="ach-card reveal">
@@ -1267,6 +1291,7 @@
           <div class="ach-title">Incubated at Bhamasha Techno Hub</div>
           <div class="ach-desc">SaviHer secured incubation; applied for iSTART state funding.</div>
           <div class="ach-date">2024 – Present</div>
+          <div class="project-tags" style="margin-top: 1rem;"><span class="tag" style="color:var(--accent); background:rgba(29,78,216,0.1)">Incubated</span><span class="tag">Funding Applied</span></div>
         </div>
       </div>
       <div class="ach-card reveal">
@@ -1275,6 +1300,7 @@
           <div class="ach-title">Knight At Leetcode</div>
           <div class="ach-desc">Consistent problem-solving across DSA and competitive programming.</div>
           <div class="ach-date">2023 – Present</div>
+          <div class="project-tags" style="margin-top: 1rem;"><span class="tag">Knight Badge</span><span class="tag">700+ Solved</span></div>
         </div>
       </div>
       <div class="ach-card reveal">
@@ -1283,6 +1309,7 @@
           <div class="ach-title">Cyber Security Lead, GDG</div>
           <div class="ach-desc">Leading the app development team under Google Developer Group at BIT Mesra.</div>
           <div class="ach-date">Sept 2025</div>
+          <div class="project-tags" style="margin-top: 1rem;"><span class="tag">Core Team</span><span class="tag">GDG</span></div>
         </div>
       </div>
       <div class="ach-card reveal">
@@ -1291,6 +1318,7 @@
           <div class="ach-title">CGPA: 8.56 — BIT Mesra</div>
           <div class="ach-desc">Strong academics maintained while shipping real-world products.</div>
           <div class="ach-date">2023 – 2027</div>
+          <div class="project-tags" style="margin-top: 1rem;"><span class="tag" style="color:var(--accent); background:rgba(29,78,216,0.1)">8.56 CGPA</span></div>
         </div>
       </div>
     </div>
