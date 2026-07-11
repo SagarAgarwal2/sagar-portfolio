@@ -708,51 +708,86 @@
     }
 
     /* ACHIEVEMENTS */
-    .ach-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.2rem;
+    .ach-marquee-wrapper {
+      overflow: hidden;
+      width: 100%;
+      padding: 1rem 0 3rem;
+      display: flex;
+    }
+    .ach-marquee-track {
+      display: flex;
+      gap: 2rem;
+      width: max-content;
+      animation: scrollMarquee 40s linear infinite;
+    }
+    .ach-marquee-track:hover {
+      animation-play-state: paused;
+    }
+    @keyframes scrollMarquee {
+      to { transform: translateX(calc(-50% - 1rem)); }
+    }
+
+    @media (max-width: 768px) {
+      .ach-card { width: 300px; }
+      .ach-marquee-track { gap: 1rem; }
+      @keyframes scrollMarquee {
+        to { transform: translateX(calc(-50% - 0.5rem)); }
+      }
     }
 
     .ach-card {
+      width: 350px;
+      flex-shrink: 0;
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.8rem;
+      border-radius: 16px;
+      overflow: hidden;
       display: flex;
-      gap: 1.2rem;
-      align-items: flex-start;
-      transition: all 0.25s;
-      box-shadow: 0 2px 10px var(--shadow);
+      flex-direction: column;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px var(--shadow);
     }
 
     .ach-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 32px var(--shadow);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px var(--shadow);
+    }
+    
+    .ach-image-wrapper {
+      width: 100%;
+      flex-grow: 1;
+      min-height: 180px;
+      overflow: hidden;
+      background: #000;
     }
 
-    .ach-icon {
-      font-size: 1.7rem;
-      flex-shrink: 0;
+    .ach-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      opacity: 0.85;
+    }
+    
+    .ach-card:hover .ach-image {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+
+    .ach-content {
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: var(--surface);
     }
 
     .ach-title {
       font-weight: 700;
-      font-size: 0.95rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .ach-desc {
-      font-size: 0.8rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .ach-date {
-      font-size: 0.7rem;
-      font-family: 'Fira Code', monospace;
-      color: var(--accent);
-      margin-top: 0.5rem;
+      font-size: 1rem;
+      margin: 0;
+      color: var(--text);
     }
 
     /* CONTACT */
@@ -1027,15 +1062,15 @@
       <div class="exp-card reveal">
         <div class="exp-header">
           <div>
-            <div class="exp-role">Software Development Engineer Intern</div>
-            <div class="exp-company">Daanik Eduventures Private Limited</div>
+            <div class="exp-role">Software Developer Intern</div>
+            <div class="exp-company">Daanik Eduventures</div>
           </div>
-          <div class="exp-date">Present</div>
+          <div class="exp-date">May 2026 – Jul. 2026</div>
         </div>
         <div class="exp-desc">
           <ul>
-            <li>Contributing to core product development and maintaining robust software architecture.</li>
-            <li>Collaborating with cross-functional teams to design, implement, and ship new features.</li>
+            <li>Worked on software and app development, contributing to revenue-improvement techniques and improving delivery efficiency by supporting 5+ features.</li>
+            <li>Reduced turnaround time by 18% and collaborated on 2 deployments.</li>
           </ul>
         </div>
         <div class="project-tags" style="margin-top: 1.5rem;">
@@ -1058,7 +1093,7 @@
           <div class="project-num">01 · E-Governance · Middleware</div>
           <div class="project-title">Sanchaar Setu</div>
           <div class="featured-details">
-            <div class="project-desc">E-governance middleware enabling secure, tamper-evident communication between government departments. Features Kafka-based async messaging, hash-chained audit logs, PII scrubbing, RBAC, and rate limiting.</div>
+            <div class="project-desc">Bidirectional sync middleware connecting Karnataka's Single Window System to 40+ legacy department systems. Features Kafka-based async messaging, pgvector semantic mapping, hash-chained audit logs, and PII scrubbing, reducing data propagation to under 5 seconds.</div>
             <div class="project-metrics">
               <span class="metric metric-green">Production-grade</span>
               <span class="metric metric-blue">Tamper-evident logs</span>
@@ -1257,69 +1292,134 @@
       <div class="section-label">Recognition</div>
       <h2 class="section-title">Achievements &amp; Roles</h2>
     </div>
-    <div class="ach-grid">
-      <div class="ach-card reveal">
-        <div class="ach-icon">🏆</div>
-        <div>
-          <div class="ach-title">AI for Bharat Hackathon Winner — ₹1,00,000, PAN IIT</div>
-          <div class="ach-desc">Recognized as winners for Sanchaar Setu; evaluated by Joint Directors, Dept. of Industry
-            &amp; Commerce, Govt. of Karnataka, with EY as EODB knowledge partner.</div>
-          <div class="ach-date">May 2026</div>
-          <div class="project-tags" style="margin-top: 1rem;"><span class="tag" style="color:var(--accent2); background:rgba(185,28,28,0.1)">₹1,00,000 Prize</span><span class="tag">Winner</span></div>
+    <div class="ach-marquee-wrapper">
+      <div class="ach-marquee-track">
+        <!-- FIRST SET -->
+        <div class="ach-card reveal">
+          <div class="ach-image-wrapper">
+            <img src="https://placehold.co/600x400/111111/444444?text=Upload+Photo" class="ach-image" alt="Achievement Photo">
+          </div>
+          <div class="ach-content">
+            <div class="ach-title">AI for Bharat Hackathon Winner</div>
+          </div>
         </div>
-      </div>
-      <div class="ach-card reveal">
-        <div class="ach-icon">🏆</div>
-        <div>
-          <div class="ach-title">Won 250$ – Algorand Hackathon Finalist</div>
-          <div class="ach-desc">Built a scalable P2P energy trading platform. Awarded $250 for reaching Round 3.</div>
-          <div class="ach-date">Dec 2024</div>
-          <div class="project-tags" style="margin-top: 1rem;"><span class="tag" style="color:var(--accent3); background:rgba(21,128,61,0.1)">$250 Prize</span><span class="tag">Finalist</span></div>
+
+        <div class="ach-card reveal">
+          <div class="ach-image-wrapper">
+            <img src="https://placehold.co/600x400/111111/444444?text=Upload+Photo" class="ach-image" alt="Achievement Photo">
+          </div>
+          <div class="ach-content">
+            <div class="ach-title">Won 250$ – Algorand Hackathon Finalist</div>
+          </div>
         </div>
-      </div>
-      <div class="ach-card reveal">
-        <div class="ach-icon">🇮🇳</div>
-        <div>
-          <div class="ach-title">Smart India Hackathon — Top 10</div>
-          <div class="ach-desc">Selected among top 10 campus teams for national-level competition.</div>
-          <div class="ach-date">Sept 2024</div>
-          <div class="project-tags" style="margin-top: 1rem;"><span class="tag">Top 10</span></div>
+
+        <div class="ach-card reveal">
+          <div class="ach-image-wrapper">
+            <img src="https://placehold.co/600x400/111111/444444?text=Upload+Photo" class="ach-image" alt="Achievement Photo">
+          </div>
+          <div class="ach-content">
+            <div class="ach-title">Research Paper Accepted — IDBA 2026 (Springer)</div>
+          </div>
         </div>
-      </div>
-      <div class="ach-card reveal">
-        <div class="ach-icon">💡</div>
-        <div>
-          <div class="ach-title">Incubated at Bhamasha Techno Hub</div>
-          <div class="ach-desc">SaviHer secured incubation; applied for iSTART state funding.</div>
-          <div class="ach-date">2024 – Present</div>
-          <div class="project-tags" style="margin-top: 1rem;"><span class="tag" style="color:var(--accent); background:rgba(29,78,216,0.1)">Incubated</span><span class="tag">Funding Applied</span></div>
+
+        <div class="ach-card reveal">
+          <div class="ach-image-wrapper">
+            <img src="https://placehold.co/600x400/111111/444444?text=Upload+Photo" class="ach-image" alt="Achievement Photo">
+          </div>
+          <div class="ach-content">
+            <div class="ach-title">Incubated at Bhamasha Techno Hub</div>
+          </div>
         </div>
-      </div>
-      <div class="ach-card reveal">
-        <div class="ach-icon">🥷</div>
-        <div>
-          <div class="ach-title">Knight At Leetcode</div>
-          <div class="ach-desc">Consistent problem-solving across DSA and competitive programming.</div>
-          <div class="ach-date">2023 – Present</div>
-          <div class="project-tags" style="margin-top: 1rem;"><span class="tag">Knight Badge</span><span class="tag">700+ Solved</span></div>
+
+        <div class="ach-card reveal">
+          <div class="ach-image-wrapper">
+            <img src="https://placehold.co/600x400/111111/444444?text=Upload+Photo" class="ach-image" alt="Achievement Photo">
+          </div>
+          <div class="ach-content">
+            <div class="ach-title">Knight At Leetcode</div>
+          </div>
         </div>
-      </div>
-      <div class="ach-card reveal">
-        <div class="ach-icon">🔐</div>
-        <div>
-          <div class="ach-title">Cyber Security Lead, GDG</div>
-          <div class="ach-desc">Leading the app development team under Google Developer Group at BIT Mesra.</div>
-          <div class="ach-date">Sept 2025</div>
-          <div class="project-tags" style="margin-top: 1rem;"><span class="tag">Core Team</span><span class="tag">GDG</span></div>
+
+        <div class="ach-card reveal">
+          <div class="ach-image-wrapper">
+            <img src="https://placehold.co/600x400/111111/444444?text=Upload+Photo" class="ach-image" alt="Achievement Photo">
+          </div>
+          <div class="ach-content">
+            <div class="ach-title">Cyber Security Lead, GDG</div>
+          </div>
         </div>
-      </div>
-      <div class="ach-card reveal">
-        <div class="ach-icon">🎓</div>
-        <div>
-          <div class="ach-title">CGPA: 8.56 — BIT Mesra</div>
-          <div class="ach-desc">Strong academics maintained while shipping real-world products.</div>
-          <div class="ach-date">2023 – 2027</div>
-          <div class="project-tags" style="margin-top: 1rem;"><span class="tag" style="color:var(--accent); background:rgba(29,78,216,0.1)">8.56 CGPA</span></div>
+
+        <div class="ach-card reveal">
+          <div class="ach-image-wrapper">
+            <img src="https://placehold.co/600x400/111111/444444?text=Upload+Photo" class="ach-image" alt="Achievement Photo">
+          </div>
+          <div class="ach-content">
+            <div class="ach-title">CGPA: 8.56 — BIT Mesra</div>
+          </div>
+        </div>
+
+        <!-- DUPLICATED SET FOR SEAMLESS LOOPING -->
+        <div class="ach-card">
+          <div class="ach-image-wrapper">
+            <img src="https://placehold.co/600x400/111111/444444?text=Upload+Photo" class="ach-image" alt="Achievement Photo">
+          </div>
+          <div class="ach-content">
+            <div class="ach-title">AI for Bharat Hackathon Winner</div>
+          </div>
+        </div>
+
+        <div class="ach-card">
+          <div class="ach-image-wrapper">
+            <img src="https://placehold.co/600x400/111111/444444?text=Upload+Photo" class="ach-image" alt="Achievement Photo">
+          </div>
+          <div class="ach-content">
+            <div class="ach-title">Won 250$ – Algorand Hackathon Finalist</div>
+          </div>
+        </div>
+
+        <div class="ach-card">
+          <div class="ach-image-wrapper">
+            <img src="https://placehold.co/600x400/111111/444444?text=Upload+Photo" class="ach-image" alt="Achievement Photo">
+          </div>
+          <div class="ach-content">
+            <div class="ach-title">Research Paper Accepted — IDBA 2026 (Springer)</div>
+          </div>
+        </div>
+
+        <div class="ach-card">
+          <div class="ach-image-wrapper">
+            <img src="https://placehold.co/600x400/111111/444444?text=Upload+Photo" class="ach-image" alt="Achievement Photo">
+          </div>
+          <div class="ach-content">
+            <div class="ach-title">Incubated at Bhamasha Techno Hub</div>
+          </div>
+        </div>
+
+        <div class="ach-card">
+          <div class="ach-image-wrapper">
+            <img src="https://placehold.co/600x400/111111/444444?text=Upload+Photo" class="ach-image" alt="Achievement Photo">
+          </div>
+          <div class="ach-content">
+            <div class="ach-title">Knight At Leetcode</div>
+          </div>
+        </div>
+
+        <div class="ach-card">
+          <div class="ach-image-wrapper">
+            <img src="https://placehold.co/600x400/111111/444444?text=Upload+Photo" class="ach-image" alt="Achievement Photo">
+          </div>
+          <div class="ach-content">
+            <div class="ach-title">Cyber Security Lead, GDG</div>
+          </div>
+        </div>
+
+        <div class="ach-card">
+          <div class="ach-image-wrapper">
+            <img src="https://placehold.co/600x400/111111/444444?text=Upload+Photo" class="ach-image" alt="Achievement Photo">
+          </div>
+          <div class="ach-content">
+            <div class="ach-title">CGPA: 8.56 — BIT Mesra</div>
+          </div>
         </div>
       </div>
     </div>
