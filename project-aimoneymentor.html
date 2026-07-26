@@ -70,7 +70,13 @@
   .cta-section{text-align:center;padding:3rem 2rem;background:var(--bg2);border-radius:12px;margin-top:4rem}
   .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 2rem;border-radius:6px;font-size:.88rem;font-weight:600;text-decoration:none;transition:all .25s}
   .btn-primary{background:var(--text);color:var(--bg);box-shadow:0 4px 20px var(--shadow)}.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px var(--shadow)}
-  @media(max-width:768px){nav{padding:1rem 1.5rem}.theme-toggle{right:1.5rem}.container{padding:6rem 1.5rem 3rem}}
+  .screenshots-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1.5rem}
+  .screenshot-item{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;box-shadow:0 2px 12px var(--shadow);transition:all .3s}
+  .screenshot-item:hover{transform:translateY(-4px);box-shadow:0 12px 36px var(--shadow);border-color:var(--accent)}
+  .screenshot-item img{width:100%;display:block;transition:transform .4s}
+  .screenshot-item:hover img{transform:scale(1.03)}
+  @media(max-width:900px){.screenshots-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:768px){nav{padding:1rem 1.5rem}.theme-toggle{right:1.5rem}.container{padding:6rem 1.5rem 3rem}.screenshots-grid{grid-template-columns:1fr}}
 </style>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/jpeg" href="assests/favicon.jpg" />
@@ -93,6 +99,25 @@
       <span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">React</span><span class="tag">FastAPI</span><span class="tag">NLP</span><span class="tag">Chart.js</span>
     </div>
   </div>
+
+  <div class="section">
+    <h2 class="section-title">Screenshots</h2>
+    <div class="section-content">
+      <p>A visual walkthrough of AI Money Mentor's intuitive interface and predictive analytics.</p>
+    </div>
+    <div class="screenshots-grid">
+      <div class="screenshot-item">
+        <img src="assests/ai%20money%20mentor.png" alt="AI Money Mentor Screenshot 1" loading="lazy">
+      </div>
+      <div class="screenshot-item">
+        <img src="assests/ai%20money%20mentor%201.png" alt="AI Money Mentor Screenshot 2" loading="lazy">
+      </div>
+      <div class="screenshot-item">
+        <img src="assests/ai%20money%20mentor%202.png" alt="AI Money Mentor Screenshot 3" loading="lazy">
+      </div>
+    </div>
+  </div>
+
 
   <div class="section">
     <h2 class="section-title">Project Overview</h2>
