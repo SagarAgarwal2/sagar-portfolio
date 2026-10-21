@@ -141,7 +141,8 @@
   }
 </style>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/jpeg" href="assests/favicon.jpg" />
+  <link rel="icon" type="image/png" href="assests/favicon-64.png" />
+  <link rel="apple-touch-icon" href="assests/apple-touch-icon.png" />
 </head>
 <body>
 
@@ -236,7 +237,7 @@
   </div>
   
   <div class="cta-section">
-    <a href="https://github.com/SagarAgarwal2" target="_blank" class="btn btn-primary">View Code on GitHub →</a>
+    <a href="https://github.com/SagarAgarwal2/asianpaints" target="_blank" class="btn btn-primary">View Code on GitHub →</a>
   </div>
 </div>
 
@@ -322,7 +323,7 @@ document.addEventListener("DOMContentLoaded", () => {
   lightbox.innerHTML = `
     <span class="lightbox-close">&times;</span>
     <span class="lightbox-prev">&#10094;</span>
-    <img class="lightbox-content" id="lightbox-img">
+    <img loading="lazy" decoding="async" class="lightbox-content" id="lightbox-img">
     <span class="lightbox-next">&#10095;</span>
   `;
   document.body.appendChild(lightbox);

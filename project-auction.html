@@ -142,7 +142,8 @@
   }
 </style>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/jpeg" href="assests/favicon.jpg" />
+  <link rel="icon" type="image/png" href="assests/favicon-64.png" />
+  <link rel="apple-touch-icon" href="assests/apple-touch-icon.png" />
 </head>
 <body>
 
@@ -179,12 +180,12 @@
     <h2 class="section-title">Screenshots</h2>
     <div class="screenshots">
       <div class="screenshot-item">
-        <img src="assests/Screenshot 2026-03-04 132020.png" alt="Home Page Landing" style="width: 100%; border-radius: 6px; margin-bottom: 0.7rem;">
+        <img loading="lazy" decoding="async" src="assests/bob.webp" alt="Home Page Landing" style="width: 100%; border-radius: 6px; margin-bottom: 0.7rem;">
         <p class="screenshot-caption">Battle of Bytes Auction Event main landing page with hero section</p>
       </div>
       
       <div class="screenshot-item">
-        <img src="assests/Screenshot 2026-03-04 132045.png" alt="Player Auction Dashboard" style="width: 100%; border-radius: 6px; margin-bottom: 0.7rem;">
+        <img loading="lazy" decoding="async" src="assests/bob1.webp" alt="Player Auction Dashboard" style="width: 100%; border-radius: 6px; margin-bottom: 0.7rem;">
         <p class="screenshot-caption">Live auction interface with Start Auction and Reset controls</p>
       </div>
     </div>
@@ -243,7 +244,7 @@
   </div>
   
   <div class="cta-section">
-    <a href="https://github.com/SagarAgarwal2" target="_blank" class="btn btn-primary">View Code on GitHub →</a>
+    <a href="https://github.com/SagarAgarwal2/Bob" target="_blank" class="btn btn-primary">View Code on GitHub →</a>
   </div>
 </div>
 
@@ -329,7 +330,7 @@ document.addEventListener("DOMContentLoaded", () => {
   lightbox.innerHTML = `
     <span class="lightbox-close">&times;</span>
     <span class="lightbox-prev">&#10094;</span>
-    <img class="lightbox-content" id="lightbox-img">
+    <img loading="lazy" decoding="async" class="lightbox-content" id="lightbox-img">
     <span class="lightbox-next">&#10095;</span>
   `;
   document.body.appendChild(lightbox);

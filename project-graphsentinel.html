@@ -80,7 +80,8 @@
   @media(max-width:768px){nav{padding:1rem 1.5rem}.theme-toggle{right:1.5rem}.container{padding:6rem 1.5rem 3rem}.screenshots-grid{grid-template-columns:1fr}}
 </style>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/jpeg" href="assests/favicon.jpg" />
+  <link rel="icon" type="image/png" href="assests/favicon-64.png" />
+  <link rel="apple-touch-icon" href="assests/apple-touch-icon.png" />
 </head>
 <body>
 <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><div class="toggle-knob" id="toggleKnob">☀️</div></button>
@@ -109,19 +110,19 @@
     </div>
     <div class="screenshots-grid">
       <div class="screenshot-item">
-        <img src="assests/gs-1.png" alt="GraphSentinel Overview" loading="lazy">
+        <img src="assests/gs-1.webp" alt="GraphSentinel Overview" loading="lazy">
       </div>
       <div class="screenshot-item">
-        <img src="assests/gs-2.png" alt="Temporal Graph" loading="lazy">
+        <img src="assests/gs-2.webp" alt="Temporal Graph" loading="lazy">
       </div>
       <div class="screenshot-item">
-        <img src="assests/gs-3.png" alt="Multi-hop Detection" loading="lazy">
+        <img src="assests/gs-3.webp" alt="Multi-hop Detection" loading="lazy">
       </div>
       <div class="screenshot-item">
-        <img src="assests/gs-4.png" alt="SHAP Explainability" loading="lazy">
+        <img src="assests/gs-4.webp" alt="SHAP Explainability" loading="lazy">
       </div>
       <div class="screenshot-item">
-        <img src="assests/gs-5.png" alt="Transaction Simulator" loading="lazy">
+        <img src="assests/gs-5.webp" alt="Transaction Simulator" loading="lazy">
       </div>
     </div>
   </div>
@@ -160,7 +161,7 @@
     </div>
   </div>
 <div class="cta-section">
-    <a href="https://github.com/SagarAgarwal2/gs" target="_blank" class="btn btn-primary">View Code on GitHub →</a>
+    <a href="https://github.com/SagarAgarwal2/graph-sentinel-banks" target="_blank" class="btn btn-primary">View Code on GitHub →</a>
   </div>
 </div>
 
@@ -235,7 +236,7 @@ document.addEventListener("DOMContentLoaded", () => {
   lightbox.innerHTML = `
     <span class="lightbox-close">&times;</span>
     <span class="lightbox-prev">&#10094;</span>
-    <img class="lightbox-content" id="lightbox-img">
+    <img loading="lazy" decoding="async" class="lightbox-content" id="lightbox-img">
     <span class="lightbox-next">&#10095;</span>
   `;
   document.body.appendChild(lightbox);

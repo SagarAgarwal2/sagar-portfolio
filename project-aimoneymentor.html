@@ -79,7 +79,8 @@
   @media(max-width:768px){nav{padding:1rem 1.5rem}.theme-toggle{right:1.5rem}.container{padding:6rem 1.5rem 3rem}.screenshots-grid{grid-template-columns:1fr}}
 </style>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/jpeg" href="assests/favicon.jpg" />
+  <link rel="icon" type="image/png" href="assests/favicon-64.png" />
+  <link rel="apple-touch-icon" href="assests/apple-touch-icon.png" />
 </head>
 <body>
 <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><div class="toggle-knob" id="toggleKnob">☀️</div></button>
@@ -107,13 +108,13 @@
     </div>
     <div class="screenshots-grid">
       <div class="screenshot-item">
-        <img src="assests/ai%20money%20mentor.png" alt="AI Money Mentor Screenshot 1" loading="lazy">
+        <img src="assests/ai%20money%20mentor.webp" alt="AI Money Mentor Screenshot 1" loading="lazy">
       </div>
       <div class="screenshot-item">
-        <img src="assests/ai%20money%20mentor%201.png" alt="AI Money Mentor Screenshot 2" loading="lazy">
+        <img src="assests/ai%20money%20mentor%201.webp" alt="AI Money Mentor Screenshot 2" loading="lazy">
       </div>
       <div class="screenshot-item">
-        <img src="assests/ai%20money%20mentor%202.png" alt="AI Money Mentor Screenshot 3" loading="lazy">
+        <img src="assests/ai%20money%20mentor%202.webp" alt="AI Money Mentor Screenshot 3" loading="lazy">
       </div>
     </div>
   </div>
@@ -165,7 +166,7 @@
   </div>
 
   <div class="cta-section">
-    <a href="https://github.com/SagarAgarwal2" target="_blank" class="btn btn-primary">View Code on GitHub →</a>
+    <a href="https://github.com/SagarAgarwal2/ai-money-inventory" target="_blank" class="btn btn-primary">View Code on GitHub →</a>
   </div>
 </div>
 
@@ -240,7 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
   lightbox.innerHTML = `
     <span class="lightbox-close">&times;</span>
     <span class="lightbox-prev">&#10094;</span>
-    <img class="lightbox-content" id="lightbox-img">
+    <img loading="lazy" decoding="async" class="lightbox-content" id="lightbox-img">
     <span class="lightbox-next">&#10095;</span>
   `;
   document.body.appendChild(lightbox);

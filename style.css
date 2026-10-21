@@ -379,3 +379,22 @@
 .featured-card .project-tags {
   margin-bottom: 1rem;
 }
+
+/* Touch screens can't hover: always show featured card details */
+@media (hover: none) {
+  .featured-card .project-thumbnail {
+    filter: brightness(0.35) contrast(1.1);
+  }
+  .featured-card .featured-overlay {
+    background:
+      linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0.6) 100%),
+      radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 100% 100%, 4px 4px;
+  }
+  .featured-card .featured-details {
+    max-height: none;
+    opacity: 1;
+    transform: none;
+    margin-top: 1rem;
+  }
+}
